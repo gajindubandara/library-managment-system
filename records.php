@@ -81,13 +81,11 @@ include("connection/config.php");
                     </div>
                     <div class="form-group">
                         <label for="book" class="control-label">Borrow Date</label>
-                        <input type="date" name="bDate" id="bDate" autocomplete="off" class="form-control"
-                                required/>
+                        <input type="date" name="bDate" id="bDate" autocomplete="off" class="form-control" value="<?php echo $current_date = date("Y-m-d"); ?>" disabled>
                     </div>
                     <div class="form-group">
                         <label for="book" class="control-label">Due Date</label>
-                        <input type="date" name="dDate" id="dDate" autocomplete="off" class="form-control"
-                               required/>
+                        <input type="date" name="dDate" id="dDate" autocomplete="off" class="form-control" value="<?php echo $due_date = date('Y-m-d', strtotime($current_date . ' + 14 days')); ?>" disabled>    
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -111,10 +109,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['saveRec'])) {
         try {
 
-            $bookId = $record->setBookId($_POST["bookId"]);
+            $bookId = $record->setBookId($_POST["isbn"]);
             $name = $record->setUserId($_POST["memberId"]);
-            $bDate = $record->setBDate($_POST["bDate"]);
-            $dDate = $record->setDDate($_POST["dDate"]);
+            $bDate = $record->setBDate($current_date);
+            $dDate = $record->setDDate($due_date);
 
 
             //Write to db
