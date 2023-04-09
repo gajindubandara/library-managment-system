@@ -246,9 +246,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // date pick Fuction
     $(function() {
       $("#reqDate").datepicker({
-        dateFormat: "yy-mm-dd",
+        dateFormat: "mm-dd-yy",
         minDate: 0,
-        maxDate: "2023-04-30",
+        
         beforeShowDay: function(date) {
           var dayOfWeek = date.getDay(); // Sunday = 0, Monday = 1, ...
           return [(dayOfWeek != 0 && dayOfWeek != 1)];
