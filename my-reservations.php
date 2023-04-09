@@ -246,9 +246,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // date pick Fuction
     $(function() {
       $("#reqDate").datepicker({
-        dateFormat: "mm-dd-yy",
+        dateFormat: "yy-mm-dd",
         minDate: 0,
-        
         beforeShowDay: function(date) {
           var dayOfWeek = date.getDay(); // Sunday = 0, Monday = 1, ...
           return [(dayOfWeek != 0 && dayOfWeek != 1)];

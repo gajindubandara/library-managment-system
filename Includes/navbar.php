@@ -41,6 +41,7 @@ function generate_navigation_links() {
     }
 
     if ($is_member) {
+        $navigation_links .= '<a href="./my-records.php" class="nav_link '.(basename($_SERVER['PHP_SELF']) == 'my-records.php' ? 'active' : '').'"><i class="fa fa-edit nav_icon"></i><span class="nav_name"> My Records</span></a>';
         $navigation_links .= '<a href="./my-reservations.php" class="nav_link '.(basename($_SERVER['PHP_SELF']) == 'my-reservations.php' ? 'active' : '').'" style="column-gap:13px"><i class="fa fa-calendar nav_icon" style="margin-left: 3px"></i><span class="nav_name">My Reservations</span></a>';
     }
     else if ($is_admin) {

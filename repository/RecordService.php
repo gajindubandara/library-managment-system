@@ -16,6 +16,7 @@ interface IRecord
     public function getOldPenaltyRecords();
     public function getFilteredOldPenaltyRecords();
     public function getRecordsToArray($id);
+    public function getMyRecords($id);
 
 
 }
@@ -164,6 +165,14 @@ class RecordService Implements IRecord {
     {
         $conn = getCon();
         $query = "SELECT `id` FROM `records` WHERE return_date IS NULL AND `book_id`=$id ";
+        return $conn->query($query);
+    }
+
+    public function getMyRecords($id)
+    {
+        $conn = getCon();
+        $query = "SELECT `id`, `book_id`, `borrower_id`, `borrow_date`, `due_date`, `return_date`, `penalty` 
+                FROM `records` WHERE `borrower_id`=$id ORDER BY due_date ASC";
         return $conn->query($query);
     }
 }
