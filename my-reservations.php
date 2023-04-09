@@ -66,7 +66,7 @@ include("connection/config.php");
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="book" class="control-label">Requesting Date</label>
-                        <input type="date" name="reqDate" id="reqDate" autocomplete="off" class="form-control"
+                        <input type="text" name="reqDate" id="reqDate" autocomplete="off" class="form-control"
                                placeholder="requesting date" required/>
                     </div>
                     <div class="form-group">
@@ -161,6 +161,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!--Container Main end-->
 <script src="js/navbar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
 <script>
     $(document).ready(function () {
 
@@ -239,6 +241,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             window.location.reload();
         });
 
+    });
+
+// date pick Fuction
+    $(function() {
+      $("#reqDate").datepicker({
+        dateFormat: "yy-mm-dd",
+        minDate: 0,
+        maxDate: "2023-04-30",
+        beforeShowDay: function(date) {
+          var dayOfWeek = date.getDay(); // Sunday = 0, Monday = 1, ...
+          return [(dayOfWeek != 0 && dayOfWeek != 1)];
+        }
+      });
     });
 
 </script>
