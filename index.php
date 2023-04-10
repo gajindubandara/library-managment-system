@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //    echo " icon: 'success',";
 //    echo "text: 'Login successfully!',";
 //    echo "}).then((result) => {";
-////    echo "window.location.href = 'dashboard.php'";
+////    echo "window.location.href = 'index.php'";
 //    echo "});";
 //    echo "});";
 //    echo "</script>";

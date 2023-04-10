@@ -35,7 +35,7 @@ function generate_navigation_links() {
 
     // Generate the navigation links based on the user's role
     $navigation_links = '';
-    $navigation_links .= '<a href="./dashboard.php" class="nav_link '.(basename($_SERVER['PHP_SELF']) == 'dashboard.php' ? 'active' : '').'"><i class="fa fa-home nav_icon"></i><span class="nav_name">Dashboard</span></a>';
+    $navigation_links .= '<a href="./index.php" class="nav_link '.(basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : '').'"><i class="fa fa-home nav_icon"></i><span class="nav_name">Dashboard</span></a>';
     if(!isset($_SESSION["M_ID"]) && !isset($_SESSION["A_ID"])){
         $navigation_links .= '<a href="./login.php" class="nav_link '.(basename($_SERVER['PHP_SELF']) == 'login.php' ? 'active' : '').'"><i class="fa fa-sign-in nav_icon"></i><span class="nav_name">Login</span></a>';
     }
