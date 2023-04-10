@@ -12,6 +12,7 @@ interface IMember
     public function memberLogin($id,$password);
     public function adminLogin($id,$password);
     public function checkMember();
+    public function changePassword($id,$password);
 
 }
 
@@ -60,7 +61,27 @@ class MemberService implements IMember{
 
     public function updateMember(Member $member)
     {
-        // TODO: Implement updateMember() method.
+        try {
+            $conn = getCon();
+            $id =$member->getMemberId();
+            $name=$member->getName();
+            $email=$member->getEmail();
+            $no=$member->getNo();
+            $imgUrl=$member->getImgUrl();
+
+            $query = "UPDATE `member` SET `name`=?,`email`=?,`no`=?,`imgUrl`=? WHERE `id`=$id";
+
+            $st = $conn->prepare($query);
+            $st->bindValue(1, $name, PDO::PARAM_STR);
+            $st->bindValue(2, $email, PDO::PARAM_STR);
+            $st->bindValue(3, $no, PDO::PARAM_STR);
+            $st->bindValue(4, $imgUrl, PDO::PARAM_STR);
+            $st->execute();
+
+            return 1;
+        } catch (SQLiteException $ex) {
+            return 0;
+        }
     }
 
     public function ChangeStatus($memberId,$state)
@@ -131,4 +152,18 @@ class MemberService implements IMember{
         $query = "SELECT `name` FROM member WHERE id='{$_POST['query']}%'";
         return $conn->query($query);
     }
+
+    public function changePassword($id,$password)
+    {
+        try {
+            $conn = getCon();
+            $query = "UPDATE `member` SET `password`=? WHERE `id`=$id ";
+            $st = $conn->prepare($query);
+            $st->bindValue(1, $password, PDO::PARAM_STR);
+            $st->execute();
+
+            return 1;
+        } catch (SQLiteException $ex) {
+            return 0;
+        }    }
 }
