@@ -54,7 +54,7 @@ include("connection/config.php");
 
 </div>
 
-<!--popup template for add book-->
+<!--popup template for add reservation-->
 <div id="reservationModal" class="modal fade">
     <div class="modal-dialog">
         <form method="post" id="reservationForm">

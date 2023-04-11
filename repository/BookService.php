@@ -13,6 +13,9 @@ interface IBook
     public function getBookIds($isbn);
     public function checkBook();
     public function checkIsbn();
+    public function getBooksByIsbn();
+    public function getBooksByCategory();
+    public function getSearchedBooks();
 
 
 }
@@ -176,6 +179,32 @@ class BookService implements IBook
     {
         $conn = getCon();
         $query = "SELECT `name` FROM book WHERE isbn='" . $_POST["isbn"] . "'";
+        return $conn->query($query);
+    }
+
+    public function getBooksByIsbn()
+    {
+        $conn = getCon();
+        $query = "SELECT MIN(`bookId`) AS `bookId`, `isbn`, `name`, `edition`, `price`, `year`, `pub`, `imgUrl`, 
+                    `author`, `cat`, `rack`, `shell` 
+                    FROM `book` 
+                    GROUP BY `isbn`";
+        return $conn->query($query);
+    }
+
+    public function getBooksByCategory()
+    {
+        $conn = getCon();
+        $query ="SELECT `bookId`, `isbn`, `name`, `edition`, `price`, `year`, `pub`, `imgUrl`, `author`, `cat`, `rack`, `shell` 
+            FROM `book` WHERE`cat` ='" . $_POST["option"] . "' GROUP BY `isbn`";
+        return $conn->query($query);
+    }
+
+    public function getSearchedBooks()
+    {
+        $conn = getCon();
+        $query ="SELECT `bookId`, `isbn`, `name`, `edition`, `price`, `year`, `pub`, `imgUrl`, `author`, `cat`, `rack`, `shell` 
+            FROM `book` WHERE name LIKE '{$_POST['query']}%' GROUP BY `isbn`";
         return $conn->query($query);
     }
 }
