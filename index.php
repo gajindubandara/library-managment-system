@@ -31,7 +31,8 @@ include 'connection/config.php';
                     <button class="btn btn-danger" id="searchBtn" onclick="clearInputField(),onSelect('All')" hidden ><i id="searchIcon" class="fa fa-close"></i></button>
                 </div>
             </div>
-             <input type="submit" name="categoryBtn" id="categoryBtn" class="btn btn-success" value="Filter by category" style="margin: auto"/>
+<!--             <input type="submit" name="categoryBtn" id="categoryBtn" class="btn btn-success" value="Filter by category" style="margin: auto"/>-->
+            <button class="btn btn-success" id="categoryBtn" style="margin: auto" ><i id="catIcon" class="fa fa-arrow-down" style="margin-right: 5px"> </i> Filter by category</button>
         </div>
 
     <form action="" method="post" style="margin-top: 20px">
@@ -133,12 +134,14 @@ include 'connection/config.php';
 </script>
 <script>
     // show hide category section
+    const categoryIcon =document.getElementById("catIcon");
     const toggleBtn = document.getElementById("categoryBtn");
     const section = document.getElementById("categories");
     const sectionBelow = document.getElementById("sectionBelow");
 
     toggleBtn.addEventListener("click", () => {
         if (section.style.display === "none") {
+            categoryIcon.className = "fa fa-arrow-up";
             section.style.display = "block";
             setTimeout(() => {
                 section.style.opacity = 1;
@@ -147,6 +150,7 @@ include 'connection/config.php';
                 // sectionBelow.style.marginTop = section.offsetHeight + "px";
             }, 50);
         } else {
+            categoryIcon.className = "fa fa-arrow-down";
             section.style.opacity = 0;
             section.style.transform = "translateY(-20px)";
             sectionBelow.style.transform="translateY(0)"
