@@ -23,15 +23,19 @@ include 'connection/config.php';
 
 <!--Container Main start-->
 <div class="main container">
-    <h1>Browse Books</h1>
-        <div class="col-md-8 offset-md-2 mt-5  pt-3">
+    <div class="college-data">
+        <img src="./Images/lib.png" style="width: 10%">
+        <h1 style="padding-top: 14px;padding-left: 20px"><b> St. Anthony's College Kandy - Library Management System</b></h1>
+    </div>
+
+    <h3 style="margin-top: 60px; padding-left: 18%">Browse Books</h3>
+        <div class="col-md-8 offset-md-2 mt-1">
             <div class="input-group mb-3">
-                <input type="text" id="search" class="form-control" placeholder="Search ......" aria-label="Recipient's username">
+                <input type="text" id="search" class="form-control" placeholder="Search for books..." aria-label="Recipient's username">
                 <div class="input-group-append">
                     <button class="btn btn-danger" id="searchBtn" onclick="clearInputField(),onSelect('All')" hidden ><i id="searchIcon" class="fa fa-close"></i></button>
                 </div>
             </div>
-<!--             <input type="submit" name="categoryBtn" id="categoryBtn" class="btn btn-success" value="Filter by category" style="margin: auto"/>-->
             <button class="btn btn-success" id="categoryBtn" style="margin: auto" ><i id="catIcon" class="fa fa-arrow-down" style="margin-right: 5px"> </i> Filter by category</button>
         </div>
 

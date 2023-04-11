@@ -499,3 +499,16 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
     color: red;
     margin: 50px;
 }
+
+/*home page college data*/
+.college-data {
+    display: flex;
+
+}
+
+.college-data > div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+}

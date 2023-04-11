@@ -15,8 +15,9 @@
 </header>
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
-        <div> <a href="#" class="nav_logo">
-                <img src="Images/lib.png" style="width:50%">  <span class="nav_logo-name">ABC Library</span> </a>
+        <div> <a href="#" class="nav_logo" style="padding-left: 9px">
+                <img src="Images/lib.png" style="width:48px; height: 48px">
+                <span class="nav_logo-name">SACK-LMS</span> </a>
             <div class="nav_list" id="nav_list">
                 <?php echo generate_navigation_links(); ?>
             </div>
