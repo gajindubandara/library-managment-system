@@ -10,18 +10,19 @@ if (isset($_POST['query'])) {
         $conn = getCon();
         $result = $recordService->getOldPenaltyRecords();
         $count = $result->rowCount();
-        getZ($count, $result);
+        getOldPenaltyTable($count, $result);
     } else {
         $conn = getCon();
         $result = $recordService->getFilteredOldPenaltyRecords();
         $count = $result->rowCount();
-        getZ($count, $result);
+        getOldPenaltyTable($count, $result);
     }
 }
 
-function getZ($count, $result)
+function getOldPenaltyTable($count, $result)
 {
     if ($count > 0) {
+        echo '<span>'.$count.' record(s) found</span>';
         echo '
             <div class="row justify-content-md-center">
                 <div class="col-md-12"><form method="post">';
