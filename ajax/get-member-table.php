@@ -22,6 +22,7 @@ if (isset($_POST['query'])) {
 
 function getMemberTable($count,$result){
     if ($count > 0) {
+        echo '<span>'.$count.' record(s) found</span>';
         echo '
             <div class="row justify-content-md-center">
                 <div class="col-md-12"><form method="post">';
