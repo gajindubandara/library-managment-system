@@ -25,25 +25,6 @@ include("connection/config.php");
 <!--Container Main start-->
 <div class="main container">
     <h1>My Records</h1>
-
-    <!--    <div class="row">-->
-    <div class="d-flex flex-row" style="margin: 20px 0px 20px 10px;">
-<!--        <div class="p-2">-->
-<!--            <div class="row">-->
-<!--                <div class="feature-title">Search for a book reservation</div>-->
-<!--                <input type="text" class="form-control" id="search" placeholder="Type the book name">-->
-<!--            </div>-->
-<!---->
-<!--            <button type="button" id="viewTable" class="btn btn-primary" style="margin-top: 10px"><span-->
-<!--                    class="glyphicon glyphicon-plus">View All </span></button>-->
-<!--        </div>-->
-<!---->
-<!--        <div class="ml-auto p-2">-->
-<!--            <button type="button" id="addReservation" class="btn btn-success" style="margin: 20px" ><span-->
-<!--                    class="glyphicon glyphicon-plus">Add New Reservation</span></button>-->
-<!--        </div>-->
-    </div>
-
     <div class="row justify-content-md-center">
         <div class="col-md-12">
             <form method="post" enctype="multipart/form-data">
@@ -77,5 +58,6 @@ include("connection/config.php");
     });
 
 </script>
+<?php include 'Includes/footer.php' ?>
 </body>
 </html>

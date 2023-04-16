@@ -127,5 +127,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         });
     });
 </script>
+<?php include 'Includes/footer.php' ?>
 </body>
 </html>

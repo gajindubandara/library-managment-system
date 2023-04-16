@@ -180,5 +180,6 @@ else {
 <script src="js/navbar.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<?php include 'Includes/footer.php' ?>
 </body>
 </html>

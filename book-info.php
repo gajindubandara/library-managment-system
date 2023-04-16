@@ -285,5 +285,6 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
         });
     });
 </script>
+<?php include 'Includes/footer.php' ?>
 </body>
 </html>
