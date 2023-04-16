@@ -119,7 +119,7 @@ class MemberService implements IMember{
     public function memberLogin($id,$password){
         try {
             $conn=getCon();
-            $query="SELECT `id` FROM `member` WHERE `password`=? and `id`=?";
+            $query="SELECT `id`, `state` FROM `member` WHERE `password`=? and `id`=?";
             $st=$conn->prepare($query);
             $st->bindValue(1,$password,PDO::PARAM_STR);
             $st->bindValue(2,$id,PDO::PARAM_STR);

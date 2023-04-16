@@ -82,17 +82,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $password = md5($_POST["memberPW"]);
                 $result=$memberService->memberLogin($id, $password);
                 if ($result[0]== $_POST["memberID"]) {
-                    $_SESSION["M_ID"] =$result[0];
-                    echo "<script>";
-                    echo "$(document).ready(function() {";
-                    echo "Swal.fire({";
-                    echo " icon: 'success',";
-                    echo "text: 'Login successfully!',";
-                    echo "}).then((result) => {";
-                    echo "window.location.href = 'index.php'";
-                    echo "});";
-                    echo "});";
-                    echo "</script>";
+                    if($result[1]== "active") {
+                        $_SESSION["M_ID"] = $result[0];
+                        echo "<script>";
+                        echo "$(document).ready(function() {";
+                        echo "Swal.fire({";
+                        echo " icon: 'success',";
+                        echo "text: 'Login successfully!',";
+                        echo "}).then((result) => {";
+                        echo "window.location.href = 'index.php'";
+                        echo "});";
+                        echo "});";
+                        echo "</script>";
+                    }else{
+                        echo "<script>";
+                        echo "$(document).ready(function() {";
+                        echo "Swal.fire({";
+                        echo " icon: 'warning',";
+                        echo "title: 'User Deactivated!',";
+                        echo "text: 'Please contact your librarian',";
+                        echo "}).then((result) => {";
+                        echo "});";
+                        echo "});";
+                        echo "</script>";
+                    }
                 } else {
                     echo "<script>";
                     echo "$(document).ready(function() {";
