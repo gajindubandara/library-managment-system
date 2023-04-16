@@ -159,12 +159,6 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                         <label for="isbn" class="col-sm-3 col-form-label" name="bookId"><?php echo implode(", ", $bookIds);?></label>
                     </div>
                 </div>
-<!--                <div class="row mb-3">-->
-<!--                    <label for="isbn" class="col-sm-3 col-form-label">ISBN</label>-->
-<!--                    <div class="col-sm-9">-->
-<!--                        <label for="isbn" class="col-sm-3 col-form-label" name="isbn">--><?php //echo $isbn;?><!--</label>-->
-<!--                    </div>-->
-<!--                </div>-->
                 <div class="row mb-3">
                     <label for="book-isbn" class="col-sm-3 col-form-label">Book ISBN</label>
                     <div class="col-sm-9">
