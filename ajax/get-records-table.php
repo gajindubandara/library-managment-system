@@ -77,7 +77,6 @@ function getRecordTable($count,$result){
                 $status= 'No penalty';
                 $btnSate='';
             }
-
             echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $status . '">' . $status . '</td>';
             echo '<td style="vertical-align: middle;"><button class="btn btn-success"  style="margin: auto" name="confirm" type="submit"'.$btnSate.' value="' . $row[0] . '"><i class="fa fa-check "></i> Confirm recive </button></td>';
             echo '<td style="vertical-align: middle;"><button class="btn btn-danger"  style="margin: auto" name="deleteRec" type="submit" '.$delBtnSate.' value="' . $row[0] . '"><i class="fa fa-trash "></i></button></td>';
