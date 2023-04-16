@@ -57,9 +57,9 @@ function getRecordTable($count,$result){
             //disable delete button
             $borrowDate = $row[3];
             $currentDate = date("Y-m-d");
-            $date1 = date('Y-m-d', strtotime($borrowDate. ' + 2 days'));
+            $dateToDisable = date('Y-m-d', strtotime($borrowDate. ' + 2 days'));
 
-            if ($date1 < $currentDate) {
+            if ($dateToDisable < $currentDate) {
                 $delBtnSate='hidden';
             }else{
                 $delBtnSate ='';
