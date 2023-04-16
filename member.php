@@ -88,6 +88,7 @@ include("connection/config.php");
                         <input type="text" name="imgUrl" id="imgUrl" autocomplete="off" class="form-control"
                                placeholder="Image URL" required/>
                     </div>
+                    <span><b>Note: </b> Default member password - 1234</span>
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="action" id="action" value=""/>
