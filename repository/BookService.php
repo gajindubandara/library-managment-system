@@ -82,8 +82,8 @@ class BookService implements IBook
         try {
             $conn = getCon();
 
-            $bookId = $book->getBookId();
             $isbn = $book->getIsbn();
+            $isbnArr = explode(',', $isbn);
             $name = $book->getTitle();
             $edition = $book->getEdition();
             $price = $book->getPrice();
@@ -96,7 +96,7 @@ class BookService implements IBook
             $shell = $book->getShell();
 
 
-            $query = "UPDATE `book` SET `name`=?,`edition`=?,`price`=?,`year`=?,`pub`=?,`imgUrl`=?,`author`=?,`cat`=?,`rack`=?,`shell`=? WHERE `isbn` = $isbn";
+            $query = "UPDATE `book` SET `name`=?,`edition`=?,`price`=?,`year`=?,`pub`=?,`imgUrl`=?,`author`=?,`cat`=?,`rack`=?,`shell`=?,`isbn`=? WHERE `isbn` = $isbnArr[0]";
 
             $st = $conn->prepare($query);
             $st->bindValue(1, $name, PDO::PARAM_STR);
@@ -109,6 +109,7 @@ class BookService implements IBook
             $st->bindValue(8, $category, PDO::PARAM_STR);
             $st->bindValue(9, $rack, PDO::PARAM_STR);
             $st->bindValue(10, $shell, PDO::PARAM_STR);
+            $st->bindValue(11, $isbnArr[1], PDO::PARAM_STR);
             $st->execute();
 
             return 1;
