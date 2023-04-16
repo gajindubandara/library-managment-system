@@ -38,7 +38,7 @@ function getBookTable($count, $result)
               </tr>';
         echo '</thead>';
         foreach ($result as $row) {
-
+            $valueArr = explode(',', $row[4]);
             echo '<tbody>';
             echo '<tr class="rw">';
             echo '<td style="vertical-align: middle;"><img src="' . $row[0] . '" width="80" height="90"></td>';
@@ -46,7 +46,7 @@ function getBookTable($count, $result)
             echo '<td style="vertical-align: middle;"> <input type="hidden" value="' . $row[1] . '">' . $row[1] . '</td>';
             echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $row[2] . '">' . $row[2] . '</td>';
             echo '<td style="vertical-align: middle;"> <input type="hidden" value="' . $row[3] . '">' . $row[3] . '</td>';
-            echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $row[4] . '">' . $row[4] . '</td>';
+            echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $row[4] . '">' . $valueArr[0] . ' ('.$valueArr[1].')</td>';
             echo '<td style="vertical-align: middle;"><button class="btn btn-primary"  style="margin: auto" name="viewBook" type="submit"  value="' . $row[11] . '"><i class="fa fa-info-circle "></i>  </button></td>';
             echo '</tr>';
             echo '</tr>';

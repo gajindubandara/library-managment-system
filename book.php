@@ -107,25 +107,21 @@ include("connection/config.php");
                                placeholder="Author" required/>
                     </div>
                     <div class="form-group">
-                        <label for="status" class="control-label">Category</label>
+                        <label for="status" class="control-label">Main Category</label>
                         <select class="form-control" id="category" name="category">
-                        <option value="Science">Science</option>
-                        <option value="Mathematics">Mathematics</option>
-                        <option value="Social Studies">Social Studies</option>
-                        <option value="Language Arts">Language Arts</option>
-                        <option value="Business and Careers">Business and Careers</option>
-                        <option value="Health and Physical Education">Health and Physical Education</option>
-                        <option value="Technology and Engineering">Technology and Engineering</option>
-                        <option value="Arts and Humanities">Arts and Humanities</option>
-                        <option value="English">English</option>
-                        <option value="World Languages">World Languages</option>
-                        <option value="Civics and Government">Civics and Government</option>
-                        <option value="Media and Communications">Media and Communications</option>
-                        <option value="Psychology and Sociology">Psychology and Sociology</option>
-                        <option value="Philosophy and Ethics">Philosophy and Ethics</option>
-                        <option value="Education and Teaching">Education and Teaching</option>
-                        <option value="Law and Legal Studies">Law and Legal Studies</option>
-                        <option value="Religion and Theology">Religion and Theology</option>
+                            <option value="">Select Main Category</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Non-fiction">Non-fiction</option>
+                            <option value="Reference">Reference Books</option>
+                            <option value="Magazines-and-newspapers">Magazines and Newspapers</option>
+                            <option value="Graphic-novels">Graphic Novels</option>
+                            <option value="Poetry">Poetry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="status" class="control-label">Sub-Category</label>
+                        <select class="form-control" id="sub-category" name="sub-category" disabled>
+                            <option value="">Select Sub-Category</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -159,6 +155,8 @@ include("connection/config.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['save'])) {
         try {
+            $categoryArr=$_POST["category"].",".$_POST["sub-category"];
+
             include 'model/Book.php';
             $book = new Book();
             $isbn = $book->setIsbn($_POST["isbn"]);
@@ -169,7 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $publisher = $book->setPublisher($_POST["publisher"]);
             $imgUrl = $book->setImageUrl($_POST["imgUrl"]);
             $author = $book->setAuthor($_POST["author"]);
-            $category = $book->setCategory($_POST["category"]);
+            $category = $book->setCategory($categoryArr);
             $rack = $book->setRack($_POST["rack"]);
             $shell = $book->setShell($_POST["shell"]);
             $noc = $book->setNumOfBooks($_POST["noc"]);
@@ -215,6 +213,101 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <script>
     $(document).ready(function () {
 
+        //sub categories
+        $("#category").change(function(){
+            var selected_category = $(this).children("option:selected").val();
+            if(selected_category == "Fiction"){
+                $("#sub-category").empty();
+                $("#sub-category").append("<option value=''>Select Sub-Category</option>");
+                $("#sub-category").append("<option value='Mystery'>Mystery</option>");
+                $("#sub-category").append("<option value='Romance'>Romance</option>");
+                $("#sub-category").append("<option value='Science-fiction'>Science Fiction</option>");
+                $("#sub-category").append("<option value='Fantasy'>Fantasy</option>");
+                $("#sub-category").append("<option value='Historical-fiction'>Historical Fiction</option>");
+                $("#sub-category").append("<option value='Realistic-fiction'>Realistic Fiction</option>");
+                $("#sub-category").append("<option value='Graphic-novels'>Graphic Novels</option>");
+                $("#sub-category").append("<option value='Short-story'>Short Story</option>");
+                $("#sub-category").append("<option value='Thriller'>Thriller</option>");
+                $("#sub-category").append("<option value='Horror'>Horror</option>");
+                $("#sub-category").append("<option value='Crime'>Crime</option>");
+                $("#sub-category").append("<option value='Comedy'>Comedy</option>");
+                $("#sub-category").append("<option value='Adventure'>Adventure</option>");
+                $("#sub-category").append("<option value='Literary-fiction'>Literary Fiction</option>");
+                $("#sub-category").append("<option value='Satire'>Satire</option>");
+                $("#sub-category").append("<option value='Gothic'>Gothic</option>");
+            }
+            else if(selected_category == "Non-fiction"){
+                $("#sub-category").empty();
+                $("#sub-category").append("<option value=''>Select Sub-Category</option>");
+                $("#sub-category").append("<option value='Autobiography-memoir'>Autobiography/Memoir</option>");
+                $("#sub-category").append("<option value='Biography'>Biography</option>");
+                $("#sub-category").append("<option value='History'>History</option>");
+                $("#sub-category").append("<option value='Science'>Science</option>");
+                $("#sub-category").append("<option value='Technology'>Technology</option>");
+                $("#sub-category").append("<option value='Business-finance'>Business/Finance</option>");
+                $("#sub-category").append("<option value='Self-help-personal-development'>Self-Help/Personal Development</option>");
+                $("#sub-category").append("<option value='Health-fitness'>Health/Fitness</option>");
+                $("#sub-category").append("<option value='Travel'>Travel</option>");
+                $("#sub-category").append("<option value='True-crime'>True Crime</option>");
+                $("#sub-category").append("<option value='Politics-government'>Politics/Government</option>");
+                $("#sub-category").append("<option value='Philosophy'>Philosophy</option>");
+                $("#sub-category").append("<option value='Religion-spirituality'>Religion/Spirituality</option>");
+                $("#sub-category").append("<option value='Art-architecture'>Art/Architecture</option>");
+                $("#sub-category").append("<option value='Cooking-food'>Cooking/Food</option>");
+                $("#sub-category").append("<option value='Sports-recreation'>Sports/Recreation</option>");
+                $("#sub-category").append("<option value='Education-teaching'>Education/Teaching</option>");
+                $("#sub-category").append("<option value='Environment-nature'>Environment/Nature</option>");
+                $("#sub-category").append("<option value='Family'>Family</option>");
+                $("#sub-category").append("<option value='Psychology'>Psychology</option>");
+                $("#sub-category").append("<option value='Social-science'>Social Science</option>");
+                $("#sub-category").append("<option value='Journalism-essays'>Journalism/Essays</option>");
+                $("#sub-category").append("<option value='Cultural-social-issues'>Cultural/Social Issues</option>");
+                $("#sub-category").append("<option value='Music-history'>Music/Music History</option>");
+                $("#sub-category").append("<option value='Foreign-languages'>Foreign languages</option>");
+
+
+            }else if(selected_category == "Reference"){
+                $("#sub-category").empty();
+                $("#sub-category").append("<option value=''>Select Sub-Category</option>");
+                $("#sub-category").append("<option value='Dictionaries'>Dictionaries</option>");
+                $("#sub-category").append("<option value='Thesauruses'>Thesauruses</option>");
+                $("#sub-category").append("<option value='Encyclopedias'>Encyclopedias</option>");
+                $("#sub-category").append("<option value='Atlases'>Atlases</option>");
+                $("#sub-category").append("<option value='Almanacs'>Almanacs</option>");
+                $("#sub-category").append("<option value='Style-guides'>Style Guides</option>");
+
+            }else if(selected_category == "Magazines-and-newspapers"){
+                $("#sub-category").empty();
+                $("#sub-category").append("<option value=''>Select Sub-Category</option>");
+                $("#sub-category").append("<option value='Current-events-magazines'>Current Events Magazines</option>");
+                $("#sub-category").append("<option value='Science-magazines'>Science Magazines</option>");
+                $("#sub-category").append("<option value='Literary-magazines'>Literary Magazines</option>");
+                $("#sub-category").append("<option value='Sports-magazines'>Sports Magazines</option>");
+                $("#sub-category").append("<option value='Local-and-national-newspapers'>Local and National Newspapers</option>");
+
+            }else if(selected_category == "Graphic-novels"){
+                $("#sub-category").empty();
+                $("#sub-category").append("<option value=''>Select Sub-Category</option>");
+                $("#sub-category").append("<option value='Comics'>Comics</option>");
+                $("#sub-category").append("<option value='Manga'>Manga</option>");
+
+            }else if(selected_category == "Poetry"){
+                $("#sub-category").empty();
+                $("#sub-category").append("<option value=''>Select Sub-Category</option>");
+                $("#sub-category").append("<option value='Sonnets'>Sonnets</option>");
+                $("#sub-category").append("<option value='Haiku'>Haiku</option>");
+                $("#sub-category").append("<option value='Free-verse'>Free Verse</option>");
+                $("#sub-category").append("<option value='Narrative-poetry'>Narrative Poetry</option>");
+                $("#sub-category").append("<option value='Lyric-poetry'>Lyric Poetry</option>");
+                $("#sub-category").append("<option value='Epic-poetry'>Epic Poetry</option>");
+                $("#sub-category").append("<option value='Ballads'>Ballads</option>");
+                $("#sub-category").append("<option value='Odes'>Odes</option>");
+                $("#sub-category").append("<option value='Anthologies'>Anthologies</option>");
+            }
+            $("#sub-category").prop("disabled", false);
+        });
+
+        //Add book
         $('#addBook').click(function () {
             $('#bookModal').modal({
                 backdrop: 'static',
