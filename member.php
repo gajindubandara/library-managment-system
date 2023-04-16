@@ -110,7 +110,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $member->setEmail($_POST["email"]);
         $mobilenumber = $member->setNo($_POST["mobileNo"]);
         $imgUrl = $member->setImgUrl($_POST["imgUrl"]);
-        $password=$member->setPassword("1234");
+        $md5Password = md5("1234");
+        $password=$member->setPassword($md5Password);
 
 
         //Write to db
