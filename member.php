@@ -144,7 +144,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $state = new MemberService();
         $valueArr = explode(',', $_POST["changeState"]);
 
-        echo $valueArr[1];
         if ($valueArr[1]==1){
             $check = $state->ChangeStatus($valueArr[0],"inactive");
             if ($check == 1) {
