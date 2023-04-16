@@ -31,7 +31,7 @@ include 'connection/config.php';
     <h3 style="margin-top: 60px; padding-left: 18%">Browse Books</h3>
         <div class="col-md-8 offset-md-2 mt-1">
             <div class="input-group mb-3">
-                <input type="text" id="search" class="form-control" placeholder="Search for books..." aria-label="Recipient's username">
+                <input type="text" id="search" class="form-control" placeholder="Search books by name..." aria-label="Recipient's username">
                 <div class="input-group-append">
                     <button class="btn btn-danger" id="searchBtn" onclick="clearInputField(),onSelect('All')" hidden ><i id="searchIcon" class="fa fa-close"></i></button>
                 </div>
@@ -42,8 +42,8 @@ include 'connection/config.php';
     <form action="" method="post" style="margin-top: 20px">
         <ul class="ks-cboxtags" style="display: none; transition: all 0.5s ease-in-out;" id="categories">
             <li><input type="checkbox" id="checkboxOne" value="All" onclick="onSelect('All')" name="All" checked><label for="checkboxOne">All</label></li>
-            <li><input type="checkbox" id="checkboxTwo" value="Science" onclick="onSelect('Science')" name="a" ><label for="checkboxTwo">Science</label></li>
-            <li><input type="checkbox" id="checkboxThree" value="Mathematics" onclick="onSelect('Mathematics')" name="cxz"><label for="checkboxThree">Mathematics</label></li>
+            <li><input type="checkbox" id="checkboxTwo" value="Science" onclick="onSelect('Science')"><label for="checkboxTwo">Science</label></li>
+            <li><input type="checkbox" id="checkboxThree" value="Mathematics" onclick="onSelect('Mathematics')"><label for="checkboxThree">Mathematics</label></li>
             <li><input type="checkbox" id="checkboxFour" value="Social Studies" onclick="onSelect('Social Studies')"><label for="checkboxFour">Social Studies</label></li>
             <li><input type="checkbox" id="checkboxEighteen" value="Religion and Theology" onclick="onSelect('Religion and Theology')"><label for="checkboxEighteen">Religion and Theology</label></li>
             <li><input type="checkbox" id="checkboxTen" value="English" onclick="onSelect('English')"><label for="checkboxTen">English</label></li>
