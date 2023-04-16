@@ -54,7 +54,6 @@ function getRecordTable($count,$result){
             $date_convert = date_format($date, "Y-m-d");
             $btnSate='';
 
-
             //disable delete button
             $borrowDate = $row[3];
             $currentDate = date("Y-m-d");
@@ -65,7 +64,6 @@ function getRecordTable($count,$result){
             }else{
                 $delBtnSate ='';
             }
-
 
             //penalty check
             if ($date_now > $date_convert) {
@@ -79,7 +77,6 @@ function getRecordTable($count,$result){
                 $status= 'No penalty';
                 $btnSate='';
             }
-
 
             echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $status . '">' . $status . '</td>';
             echo '<td style="vertical-align: middle;"><button class="btn btn-success"  style="margin: auto" name="confirm" type="submit"'.$btnSate.' value="' . $row[0] . '"><i class="fa fa-check "></i> Confirm recive </button></td>';
