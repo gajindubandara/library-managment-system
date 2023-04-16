@@ -53,6 +53,21 @@ function getRecordTable($count,$result){
             $date = date_create($row[4]);
             $date_convert = date_format($date, "Y-m-d");
             $btnSate='';
+
+
+            //disable delete button
+            $borrowDate = $row[3];
+            $currentDate = date("Y-m-d");
+            $date1 = date('Y-m-d', strtotime($borrowDate. ' + 2 days'));
+
+            if ($date1 < $currentDate) {
+                $delBtnSate='hidden';
+            }else{
+                $delBtnSate ='';
+            }
+
+
+            //penalty check
             if ($date_now > $date_convert) {
                 if($row[6]==null){
                     $status= 'Pay the penalty!';
@@ -64,9 +79,11 @@ function getRecordTable($count,$result){
                 $status= 'No penalty';
                 $btnSate='';
             }
+
+
             echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $status . '">' . $status . '</td>';
             echo '<td style="vertical-align: middle;"><button class="btn btn-success"  style="margin: auto" name="confirm" type="submit"'.$btnSate.' value="' . $row[0] . '"><i class="fa fa-check "></i> Confirm recive </button></td>';
-            echo '<td style="vertical-align: middle;"><button class="btn btn-danger"  style="margin: auto" name="deleteRec" type="submit" '.$btnSate.' value="' . $row[0] . '"><i class="fa fa-trash "></i></button></td>';
+            echo '<td style="vertical-align: middle;"><button class="btn btn-danger"  style="margin: auto" name="deleteRec" type="submit" '.$delBtnSate.' value="' . $row[0] . '"><i class="fa fa-trash "></i></button></td>';
             echo '</tr>';
             echo '</tr>';
             echo ' </tbody>';
