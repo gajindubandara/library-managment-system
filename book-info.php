@@ -68,8 +68,9 @@ try{
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['save'])) {
         try {
+            $isbnList=$isbn.",".$_POST['isbn'];
             $bookId=$book->setBookId($id);
-            $isbn=$book->setIsbn($isbn);
+            $isbn=$book->setIsbn($isbnList);
             $name=$book->setTitle($_POST['title']);
             $edition=$book->setEdition($_POST['edition']);
             $price=$book->setPrice($_POST['price']);
@@ -158,10 +159,16 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                         <label for="isbn" class="col-sm-3 col-form-label" name="bookId"><?php echo implode(", ", $bookIds);?></label>
                     </div>
                 </div>
+<!--                <div class="row mb-3">-->
+<!--                    <label for="isbn" class="col-sm-3 col-form-label">ISBN</label>-->
+<!--                    <div class="col-sm-9">-->
+<!--                        <label for="isbn" class="col-sm-3 col-form-label" name="isbn">--><?php //echo $isbn;?><!--</label>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <div class="row mb-3">
-                    <label for="isbn" class="col-sm-3 col-form-label">ISBN</label>
+                    <label for="book-isbn" class="col-sm-3 col-form-label">Book ISBN</label>
                     <div class="col-sm-9">
-                        <label for="isbn" class="col-sm-3 col-form-label" name="isbn"><?php echo $isbn;?></label>
+                        <input type="text" class="form-control" id="book-isbn" name="isbn" value="<?php echo $isbn;?>" disabled>
                     </div>
                 </div>
                 <div class="row mb-3">
