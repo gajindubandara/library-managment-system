@@ -54,7 +54,7 @@ function getOldPenaltyTable($count, $result)
         echo '</table>';
         echo '</form></div> </div>';
     } else {
-        echo "<span  style='color:red; margin-left: auto; margin-right: auto; display: table; margin-top: 50px;' class='features CardBgCol' > No available penalty records for this member ID</span>";
+        echo "<span  style='color:red; margin-left: auto; margin-right: auto; display: table; margin-top: 50px;' class='features CardBgCol' > No available old penalty records</span>";
     }
 }
 

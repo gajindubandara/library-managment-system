@@ -62,7 +62,7 @@ function getPenaltyTable($count,$result){
         echo '</form></div> </div>';
     }
     else {
-        echo "<span  style='color:red; margin-left: auto; margin-right: auto; display: table; margin-top: 50px;' class='features CardBgCol' > No available penalty for this member ID</span>";
+        echo "<span  style='color:red; margin-left: auto; margin-right: auto; display: table; margin-top: 50px;' class='features CardBgCol' > No available penalty records</span>";
     }
 }
 ?>

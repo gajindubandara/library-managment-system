@@ -55,7 +55,7 @@ function getBookTable($count, $result)
         echo '</table>';
         echo '</form></div> </div>';
     } else {
-        echo "<span  style='color:red; margin-left: auto; margin-right: auto; display: table; margin-top: 50px;' class='features CardBgCol' >  No available books for this name</span>";
+        echo "<span  style='color:red; margin-left: auto; margin-right: auto; display: table; margin-top: 50px;' class='features CardBgCol' >  No available books</span>";
     }
 }
 
