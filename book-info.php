@@ -257,7 +257,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-primary" id="edit-btn">Update Book</button>
+                        <button type="button" class="btn btn-primary" id="edit-btn">Edit Book</button>
                         <input type="submit" class="btn btn-success d-none" id="save-btn" value="Save" name="save">
                         <input type="submit" class="btn btn-danger" id="delete-btn" value="Delete Book" name="delete">
                         <button type="button" class="btn btn-secondary" onclick="window.history.back()">Back to Previous Page</button>
