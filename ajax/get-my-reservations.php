@@ -49,7 +49,7 @@ function getMyResTable($count,$result){
             echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $row["state"] . '">' . $row["state"] . '</td>';
 
             if ($row["state"]=="pending"){
-                echo '<td style="vertical-align: middle;"><button class="btn btn-primary" style="margin: auto" name="delRes" type="submit" value="' . $row["id"] . '"><i class="fa fa fa-trash"></i> </button></td>';
+                echo '<td style="vertical-align: middle;"><button class="btn btn-danger" style="margin: auto" name="delRes" type="submit" value="' . $row["id"] . '"><i class="fa fa fa-trash"></i> </button></td>';
             }
             echo '</tr>';
             echo '</tr>';
