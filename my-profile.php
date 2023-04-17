@@ -214,8 +214,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                         <input type="submit" class="btn btn-success d-none btn-flex" id="save-btn" value="Save" name="save">
                         <button type="button" class="btn btn-primary btn-flex" id="pw-btn">Change Password</button>
                         <input type="submit" class="btn btn-success d-none btn-flex" id="save-pw" value="Save Password" name="save-pw">
-                        <button type="button" class="btn btn-secondary btn-flex" onclick="window.history.back()">Back to Previous Page</button>
-                    </div>
+                        <button type="button" id="cancel" class=" btn btn-danger d-none btn-flex" onclick="window.location.reload()">Cancel</button>                    </div>
                 </div>
             </form>
 
@@ -244,6 +243,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
             $('input').prop('disabled', false);
             $('#edit-btn').addClass('d-none');
             $('#save-btn').removeClass('d-none');
+            $('#cancel').removeClass('d-none');
             $('#pw-btn').addClass('d-none');
             $('#newCopies').prop('hidden',false);
         });
@@ -254,6 +254,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
             $('#edit-btn').addClass('d-none');
             $('#pw-btn').addClass('d-none');
             $('#save-pw').removeClass('d-none');
+            $('#cancel').removeClass('d-none');
             $('#oldPw').prop('hidden',false);
             $('#newPw').prop('hidden',false);
             $('#reNewPw').prop('hidden',false);
