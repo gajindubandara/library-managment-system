@@ -65,46 +65,54 @@ include("connection/config.php");
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="book" class="control-label">ISBN No</label>
-                        <input type="text" name="isbn" id="isbn" oninput="checkIsbn()" autocomplete="off" class="form-control"
-                               placeholder="isbn name" required/>
+                        <label for="book" class="control-label">ISBN Number</label>
+                        <input type="number" name="isbn" id="isbn" oninput="checkIsbn()" autocomplete="off" class="form-control"
+                               placeholder="ISBN Number" required/>
                         <span id="check-isbn"></span>
+                        <span id="isbnErr"></span>
 
                     </div>
                     <div class="form-group">
-                        <label for="book" class="control-label">Book</label>
+                        <label for="book" class="control-label">Book Name</label>
                         <input type="text" name="name" id="name" autocomplete="off" class="form-control"
-                               placeholder="book name" required/>
+                               placeholder="Book name" required/>
+                        <span id="titleErr"></span>
                     </div>
                     <div class="form-group">
                         <label for="book" class="control-label">Edition</label>
-                        <input type="text" name="edition" id="edition" autocomplete="off" class="form-control"
+                        <input type="number" name="edition" id="edition" min="0" autocomplete="off" class="form-control"
                                placeholder="Edition" required/>
+                        <span id="editionErr"></span>
                     </div>
                     <div class="form-group">
                         <label for="book" class="control-label">Price</label>
-                        <input type="number" name="price" id="price" autocomplete="off" class="form-control"
+                        <input type="number" name="price" id="price" autocomplete="off" min="0" class="form-control"
                                placeholder="Price" required/>
+                        <span id="priceErr"></span>
                     </div>
                     <div class="form-group">
                         <label for="book" class="control-label">Year</label>
                         <input type="number" name="year" id="year" autocomplete="off" class="form-control"
                                placeholder="Year" required/>
+                        <span id="yearErr"></span>
                     </div>
                     <div class="form-group">
                         <label for="book" class="control-label">Publisher</label>
                         <input type="text" name="publisher" id="publisher" autocomplete="off" class="form-control"
                                placeholder="Publisher" required/>
+                        <span id="publisherErr"></span>
                     </div>
                     <div class="form-group">
                         <label for="book" class="control-label">Image URL</label>
                         <input type="text" name="imgUrl" id="imgUrl" autocomplete="off" class="form-control"
                                placeholder="Image URL" required/>
+                        <span id="urlErr"></span>
                     </div>
                     <div class="form-group">
                         <label for="book" class="control-label">Author</label>
                         <input type="text" name="author" id="author" autocomplete="off" class="form-control"
                                placeholder="Author" required/>
+                        <span id="authorErr"></span>
                     </div>
                     <div class="form-group">
                         <label for="status" class="control-label">Main Category</label>
@@ -117,17 +125,20 @@ include("connection/config.php");
                             <option value="Graphic-novels">Graphic Novels</option>
                             <option value="Poetry">Poetry</option>
                         </select>
+                        <span id="catErr"></span>
                     </div>
                     <div class="form-group">
                         <label for="status" class="control-label">Sub-Category</label>
                         <select class="form-control" id="sub-category" name="sub-category" disabled>
                             <option value="">Select Sub-Category</option>
                         </select>
+                        <span id="subCatErr"></span>
                     </div>
                     <div class="form-group">
                         <label for="book" class="control-label">Number of copies</label>
                         <input type="number" name="noc" id="noc" autocomplete="off" class="form-control"
-                               placeholder="Number of copies" min="0" value="1" required/>
+                               placeholder="Number of copies" min="1" value="1" required/>
+                        <span id="copyErr"></span>
                     </div>
                     <div class="form-group">
                         <label for="book" class="control-label">Rack</label>
@@ -209,6 +220,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <!--Container Main end-->
 <script src="js/navbar.js"></script>
+<script src="js/validateNewBook.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
     $(document).ready(function () {

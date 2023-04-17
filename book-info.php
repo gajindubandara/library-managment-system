@@ -150,9 +150,9 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 <div class="main container">
 
     <div class="row">
-        <div class="col-md-4" style="margin: auto">
-<!--            <img src="https://via.placeholder.com/200x300" alt="Book Cover" class="img-fluid book-cover">-->
-            <img src="<?php echo $imageUrl;?>" alt="Book Cover" class="img-fluid book-cover">
+        <div class="col-md-4" id="imageHolder" style="margin: auto">
+            <img src="<?php echo $imageUrl;?>" alt="Book Cover" class="img-fluid book-cover"
+                 onerror="this.onerror=null;this.src='https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png';">
         </div>
         <div class="col-md-8">
             <h1 class="mb-4">Book Details</h1>
@@ -166,19 +166,22 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                 <div class="row mb-3">
                     <label for="book-isbn" class="col-sm-3 col-form-label">Book ISBN</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="book-isbn" name="isbn" value="<?php echo $isbn;?>" disabled>
+                        <input type="number" class="form-control" id="book-isbn" name="isbn" value="<?php echo $isbn;?>" disabled>
+                        <span id="isbnErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="book-name" class="col-sm-3 col-form-label">Book Name</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" id="book-name" name="title" value="<?php echo $title;?>" disabled>
+                        <span id="nameErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="author" class="col-sm-3 col-form-label">Author</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" id="author" name="author" value="<?php echo $author;?>" disabled>
+                        <span id="authorErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -192,6 +195,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                             <option value="Graphic-novels" <?php if($catArr[0]=="Graphic-novels"){ echo ' selected="selected"';}?>>Graphic Novels</option>
                             <option value="Poetry"  <?php if($catArr[0]=="Poetry"){ echo ' selected="selected"';}?> > Poetry</option>
                         </select>
+                        <span id="catErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -199,32 +203,36 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                     <label for="sub-category" class="col-sm-3 col-form-label">Sub-Category</label>
                     <div class="col-sm-9">
                         <select class="form-control" id="sub-category" name="sub-category" disabled>
-
                         </select>
+                        <span id="subCatErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="edition" class="col-sm-3 col-form-label">Edition</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="edition" name="edition" value="<?php echo $edition;?>" disabled>
+                        <input type="number" class="form-control" id="edition" name="edition" value="<?php echo $edition;?>" disabled>
+                        <span id="editionErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="publisher" class="col-sm-3 col-form-label">Publisher</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" id="publisher" name="publisher" value="<?php echo $publisher;?>" disabled>
+                        <span id="publisherErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="rack-number" class="col-sm-3 col-form-label">Year</label>
                     <div class="col-sm-9">
                         <input type="number" class="form-control" id="year" name="year" value="<?php echo $year;?>" disabled>
+                        <span id="yearErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="shelf-number" class="col-sm-3 col-form-label">Price</label>
                     <div class="col-sm-9">
                         <input type="number" class="form-control" id="price" name="price" value="<?php echo $price;?>" disabled>
+                        <span id="priceErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -243,6 +251,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                     <label for="shelf-number" class="col-sm-3 col-form-label">Image URL</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" id="url" name="imgUrl" value="<?php echo $imageUrl;?>" disabled>
+                        <span id="urlErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -271,15 +280,27 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
         </div>
     </div>
 </div>
-<?php if (isset($_POST['category'])) {
-    echo'<script>console.log('.$_POST['category'].')</script>';
-}?>
+<?php //if (isset($_POST['category'])) {
+//    echo'<script>console.log('.$_POST['category'].')</script>';
+//}?>
 <!--Container Main end-->
 <script src="js/navbar.js"></script>
+<script src="js/validateEditBook.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
     $(document).ready(function () {
+
+        //update image
+        const $imageLinkInput = $('#url');
+        const $imageHolder = $('#imageHolder');
+
+        $imageLinkInput.on('input', function() {
+            const imageUrl = $imageLinkInput.val();
+            $imageHolder.html(`<img src="${imageUrl}" alt="Book Cover" class="img-fluid book-cover"
+                 onerror="this.onerror=null;this.src='https://bmva.org.uk/images/listings/no-image.jpg';">`);
+        });
+
 
         //set sub categories
         var inputValue = $('#category').val();
