@@ -244,12 +244,14 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
             $('input').prop('disabled', false);
             $('#edit-btn').addClass('d-none');
             $('#save-btn').removeClass('d-none');
+            $('#pw-btn').addClass('d-none');
             $('#newCopies').prop('hidden',false);
         });
     });
     $(function () {
         $('#pw-btn').click(function () {
             // $('input').prop('disabled', false);
+            $('#edit-btn').addClass('d-none');
             $('#pw-btn').addClass('d-none');
             $('#save-pw').removeClass('d-none');
             $('#oldPw').prop('hidden',false);
