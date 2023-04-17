@@ -202,7 +202,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                     </div>
                 </div>
                 <div class="row mb-3" id="reNewPw" hidden>
-                    <label for="rnpw" class="col-sm-3 col-form-label">Reenter the New Password</label>
+                    <label for="rnpw" class="col-sm-3 col-form-label">Re-enter the New Password</label>
                     <div class="col-sm-9">
                         <input type="password" class="form-control" id="rNPw" name="rNPw"  disabled>
                     </div>
