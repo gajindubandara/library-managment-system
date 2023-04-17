@@ -197,7 +197,7 @@ class BookService implements IBook
     {
         $conn = getCon();
         $query ="SELECT `bookId`, `isbn`, `name`, `edition`, `price`, `year`, `pub`, `imgUrl`, `author`, `cat`, `rack`, `shell` 
-            FROM `book` WHERE`cat` ='" . $_POST["option"] . "' GROUP BY `isbn`";
+            FROM `book` WHERE  `cat` LIKE '{$_POST["option"] }%' GROUP BY `isbn` LIMIT 100";
         return $conn->query($query);
     }
 
