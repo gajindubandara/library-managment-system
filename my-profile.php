@@ -149,7 +149,8 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
     <div class="row">
         <div class="col-md-4" id="imageHolder" style="margin: auto">
             <!--            <img src="https://via.placeholder.com/200x300" alt="Book Cover" class="img-fluid book-cover">-->
-            <img src="<?php echo $imgUrl;?>" alt="Book Cover" class="img-fluid book-cover" style="border-radius: 50%">
+            <img src="<?php echo $imgUrl;?>" alt="Book Cover" class="book-cover" style="border-radius: 50%;width: 300px;height: 300px;object-fit: cover;"
+                 onerror="this.onerror=null;this.src='https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png';" >
         </div>
         <div class="col-md-8">
             <h1 class="mb-4">My Profile</h1>
@@ -163,43 +164,47 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                 <div class="row mb-3">
                     <label for="name" class="col-sm-3 col-form-label">Name</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="name" name="name" value="<?php echo $name;?>" disabled>
+                        <input type="text" class="form-control" id="name" name="name" value="<?php echo $name;?>" required disabled>
+                        <span id="nameErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="author" class="col-sm-3 col-form-label">Email</label>
+                    <label for="email" class="col-sm-3 col-form-label">Email</label>
                     <div class="col-sm-9">
-                        <input type="email" class="form-control" id="email" name="email" value="<?php echo $email;?>" disabled>
+                        <input type="email" class="form-control" id="email" name="email" value="<?php echo $email;?>" required disabled>
+                        <span id="emailErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="edition" class="col-sm-3 col-form-label">Contact No</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="no" name="no" value="<?php echo $no;?>" disabled>
+                        <input type="number" class="form-control" id="no" name="no" value="<?php echo $no;?>" required disabled>
+                        <span id="noErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="shelf-number" class="col-sm-3 col-form-label">Image URL</label>
+                    <label for="url" class="col-sm-3 col-form-label">Image URL</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="imgUrl" name="imgUrl" value="<?php echo $imgUrl;?>" disabled>
+                        <input type="text" class="form-control" id="imgUrl" name="imgUrl" value="<?php echo $imgUrl;?>" required disabled>
+                        <span id="urlErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3" id="oldPw" hidden>
                     <label for="pw" class="col-sm-3 col-form-label">Enter Old Password</label>
                     <div class="col-sm-9">
-                        <input type="password" class="form-control" id="oPW" name="oPw" disabled>
+                        <input type="password" class="form-control" id="oPW" name="oPw"  disabled>
                     </div>
                 </div>
                 <div class="row mb-3" id="newPw" hidden>
-                    <label for="pw" class="col-sm-3 col-form-label">Enter New Password</label>
+                    <label for="npw" class="col-sm-3 col-form-label">Enter New Password</label>
                     <div class="col-sm-9">
-                        <input type="password" class="form-control" id="nPw" name="nPw" disabled>
+                        <input type="password" class="form-control" id="nPw" name="nPw"  disabled>
                     </div>
                 </div>
                 <div class="row mb-3" id="reNewPw" hidden>
-                    <label for="pw" class="col-sm-3 col-form-label">Reenter the New Password</label>
+                    <label for="rnpw" class="col-sm-3 col-form-label">Reenter the New Password</label>
                     <div class="col-sm-9">
-                        <input type="password" class="form-control" id="rNPw" name="rNPw" disabled>
+                        <input type="password" class="form-control" id="rNPw" name="rNPw"  disabled>
                     </div>
                 </div>
 
@@ -220,6 +225,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 
 <!--Container Main end-->
 <script src="js/navbar.js"></script>
+<script src="js/validateEditProfile.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
@@ -229,7 +235,8 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 
         $imageLinkInput.on('input', function() {
             const imageUrl = $imageLinkInput.val();
-            $imageHolder.html(`<img src="${imageUrl}" alt="Profile Picture" class="img-fluid book-cover" style="border-radius: 50%" ">`);
+            $imageHolder.html(`<img src="${imageUrl}" alt="Profile Picture" class="img-fluid book-cover" style="border-radius: 50%;width: 300px;height: 300px;object-fit: cover;"
+                        onerror="this.onerror=null;this.src='https://bmva.org.uk/images/listings/no-image.jpg';">`);
         });
     });
     $(function () {
@@ -251,6 +258,10 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
             $('#oPW').prop('disabled',false);
             $('#nPw').prop('disabled',false);
             $('#rNPw').prop('disabled',false);
+            $('#oPW').prop('required',true);
+            $('#nPw').prop('required',true);
+            $('#rNPw').prop('required',true);
+
 
         });
     });

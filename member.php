@@ -50,6 +50,7 @@ include("connection/config.php");
             </form>
         </div>
     </div>
+
 </div>
 
 <!--popup template for add member-->
@@ -64,29 +65,34 @@ include("connection/config.php");
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="member" class="control-label">Member Id</label>
-                        <input type="text" name="memberId" id="memberId" autocomplete="off" class="form-control"
-                               placeholder="MemberID" required/>
+                        <input type="number" name="memberId" id="memberId" autocomplete="off" class="form-control"
+                               placeholder="Member ID" required/>
                         <span id="check-member"></span>
                     </div>
                     <div class="form-group">
                         <label for="member" class="control-label">Name</label>
                         <input type="text" name="name" id="name" autocomplete="off" class="form-control"
                                placeholder="Member Name" required/>
+                        <span  id="nameErr"></span>
+
                     </div>
                     <div class="form-group">
                         <label for="member" class="control-label">Email</label>
                         <input type="email" name="email" id="email" autocomplete="off" class="form-control"
-                               placeholder="email" required/>
+                               placeholder="Email" required/>
+                        <span id="emailErr"></span>
                     </div>
                     <div class="form-group">
                         <label for="member" class="control-label">Mobile Number</label>
                         <input type="number" name="mobileNo" id="mobileNo" autocomplete="off" class="form-control"
                                placeholder="Mobile Number" required/>
+                        <span id="noErr"></span>
                     </div>
                     <div class="form-group">
                         <label for="book" class="control-label">Image URL</label>
                         <input type="text" name="imgUrl" id="imgUrl" autocomplete="off" class="form-control"
                                placeholder="Image URL" required/>
+                        <span id="urlErr"></span>
                     </div>
                     <span><b>Note: </b> Default member password - 1234</span>
                 </div>
@@ -184,6 +190,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <!--Container Main end-->
 <script src="js/navbar.js"></script>
+<script src="js/validateNewMember.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
     $(document).ready(function () {
@@ -194,7 +201,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 keyboard: false
             });
             $("#memberModal").on("shown.bs.modal", function () {
-                $('#memberForm')[0].reset();
+                // $('#memberForm')[0].reset();
                 $('.modal-title').html("Add member");
                 $('#save').val('Save');
             });
