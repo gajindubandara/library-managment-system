@@ -272,7 +272,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                         <button type="button" class=" btn btn-primary btn-flex" id="edit-btn">Edit Book</button>
                         <input type="submit" class=" btn btn-success d-none btn-flex" id="save-btn" value="Save" name="save">
                         <input type="submit" class=" btn btn-danger btn-flex" id="delete-btn" value="Delete Book" name="delete">
-                        <button type="button" class=" btn btn-secondary btn-flex" onclick="window.history.back()">Back to Previous Page</button>
+                        <button type="button" id="cancel" class=" btn btn-danger d-none btn-flex" onclick="window.location.reload()">Cancel</button>
                     </div>
                 </div>
             </form>
@@ -482,7 +482,9 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
             $('#category').prop('disabled', false);
             $('#sub-category').prop('disabled', false);
             $('#edit-btn').addClass('d-none');
+            $('#delete-btn').addClass('d-none');
             $('#save-btn').removeClass('d-none');
+            $('#cancel').removeClass('d-none');
             $('#newCopies').prop('hidden',false);
         });
     });
