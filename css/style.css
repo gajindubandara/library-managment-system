@@ -509,3 +509,8 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
     padding-top: 50px;
     padding-bottom: 30px;
 }
+
+/*book-info/profile page button flex*/
+.btn-flex{
+    margin-right: 10px;
+}

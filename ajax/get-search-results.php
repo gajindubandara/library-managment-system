@@ -19,7 +19,7 @@ function getBookCard($count, $result)
         echo'<div class="row" style="padding-left: 40px">';
         foreach ($result as $row) {
             echo '   <div class="card">
-            <img src="'.$row[7].'" alt="Book" />
+            <img src="'.$row[7].'" alt="Book" onerror="this.onerror=null;this.src=\'Images/bookPlaceholder.png\';"/>
             <h3><b>'.$row[2].'</b></h3>
             <p><b>by '.$row[8].'</b></p>
             <p style="margin:0px">'.$row[1].'</p>
