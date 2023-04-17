@@ -35,7 +35,7 @@ function getOldReservationTable($count, $result)
                      <th scope="col">Borrowed Date</th>
                      <th scope="col">Due Date</th>
                      <th scope="col">Return Date</th>
-                     <th scope="col">Penalty</th>
+                     <th scope="col">Penalty (Rs.)</th>
               </tr>';
         echo '</thead>';
         foreach ($result as $row) {
@@ -51,7 +51,7 @@ function getOldReservationTable($count, $result)
             if ($row[6] == null) {
                 $penalty = "None";
             } else {
-                $penalty = $row[6];
+                $penalty = $row[6].".00";
             }
             echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $penalty . '">' . $penalty . '</td>';
             echo '</tr>';

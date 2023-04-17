@@ -34,7 +34,7 @@ function getPenaltyTable($count,$result){
                      <th scope="col">Book ISBN</th>
                      <th scope="col">Borrowed Date</th>
                      <th scope="col">Due Date</th>
-                     <th scope="col">Rate</th>
+                     <th scope="col">Rate (Rs.)</th>
                      <th scope="col"></th>
 
               </tr>';
@@ -52,7 +52,7 @@ function getPenaltyTable($count,$result){
             $days_overdue = (int) round((strtotime('now') - strtotime($row[4])) / (60*60*24));
             $penalty_amount = $days_overdue * $penalty_rate;
             $dataSet=$penalty_amount.",".$row[0];
-            echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $penalty_amount . '">' . $penalty_amount . '</td>';
+            echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $penalty_amount . '">' . $penalty_amount . '.00</td>';
             echo '<td style="vertical-align: middle;"><button class="btn btn-primary"  style="margin: auto" name="pay" type="submit" value="' . $dataSet . '"><i class="fa fa fa-money "></i> Pay penalty </button></td>';
             echo '</tr>';
             echo '</tr>';
