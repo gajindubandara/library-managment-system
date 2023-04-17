@@ -209,12 +209,12 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                 </div>
 
                 <div class="row">
-                    <div class="col-md-12">
-                        <button type="button" class="btn btn-primary" id="edit-btn">Update Profile</button>
-                        <input type="submit" class="btn btn-success d-none" id="save-btn" value="Save" name="save">
-                        <button type="button" class="btn btn-primary" id="pw-btn">Change Password</button>
-                        <input type="submit" class="btn btn-success d-none" id="save-pw" value="Save Password" name="save-pw">
-                        <button type="button" class="btn btn-secondary" onclick="window.history.back()">Back to Previous Page</button>
+                    <div class="col-md-12 d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary btn-flex" id="edit-btn">Update Profile</button>
+                        <input type="submit" class="btn btn-success d-none btn-flex" id="save-btn" value="Save" name="save">
+                        <button type="button" class="btn btn-primary btn-flex" id="pw-btn">Change Password</button>
+                        <input type="submit" class="btn btn-success d-none btn-flex" id="save-pw" value="Save Password" name="save-pw">
+                        <button type="button" class="btn btn-secondary btn-flex" onclick="window.history.back()">Back to Previous Page</button>
                     </div>
                 </div>
             </form>
