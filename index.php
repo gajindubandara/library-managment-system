@@ -48,7 +48,7 @@ include 'connection/config.php';
             <li><input type="checkbox" id="checkboxFive" value="Magazines and Newspapers" onclick="onSelect('Magazines-and-newspapers')"><label for="checkboxFive">Magazines and Newspapers</label></li>
             <li><input type="checkbox" id="checkboxSix" value="Graphic Novels" onclick="onSelect('Graphic-novels')"><label for="checkboxSix">Graphic Novels</label></li>
             <li><input type="checkbox" id="checkboxSeven" value="Poetry" onclick="onSelect('Poetry')"><label for="checkboxSeven">Poetry</label></li>
-            <li><input type="checkbox" id="checkboxTen" value="Other" onclick="onSelect('Other')"><label for="checkboxTen">Other</label></li>
+            <!-- <li><input type="checkbox" id="checkboxTen" value="Other" onclick="onSelect('Other')"><label for="checkboxTen">Other</label></li> -->
         </ul>
     </form>
 
