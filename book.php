@@ -247,6 +247,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $("#sub-category").append("<option value='Literary-fiction'>Literary Fiction</option>");
                 $("#sub-category").append("<option value='Satire'>Satire</option>");
                 $("#sub-category").append("<option value='Gothic'>Gothic</option>");
+                $("#sub-category").append("<option value='Other'>Other</option>");
             }
             else if(selected_category == "Non-fiction"){
                 $("#sub-category").empty();
@@ -276,6 +277,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $("#sub-category").append("<option value='Cultural-social-issues'>Cultural/Social Issues</option>");
                 $("#sub-category").append("<option value='Music-history'>Music/Music History</option>");
                 $("#sub-category").append("<option value='Foreign-languages'>Foreign languages</option>");
+                $("#sub-category").append("<option value='Other'>Other</option>");
 
 
             }else if(selected_category == "Reference"){
@@ -287,6 +289,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $("#sub-category").append("<option value='Atlases'>Atlases</option>");
                 $("#sub-category").append("<option value='Almanacs'>Almanacs</option>");
                 $("#sub-category").append("<option value='Style-guides'>Style Guides</option>");
+                $("#sub-category").append("<option value='Other'>Other</option>");
 
             }else if(selected_category == "Magazines-and-newspapers"){
                 $("#sub-category").empty();
@@ -296,12 +299,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $("#sub-category").append("<option value='Literary-magazines'>Literary Magazines</option>");
                 $("#sub-category").append("<option value='Sports-magazines'>Sports Magazines</option>");
                 $("#sub-category").append("<option value='Local-and-national-newspapers'>Local and National Newspapers</option>");
+                $("#sub-category").append("<option value='Other'>Other</option>");
 
             }else if(selected_category == "Graphic-novels"){
                 $("#sub-category").empty();
                 $("#sub-category").append("<option value=''>Select Sub-Category</option>");
                 $("#sub-category").append("<option value='Comics'>Comics</option>");
                 $("#sub-category").append("<option value='Manga'>Manga</option>");
+                $("#sub-category").append("<option value='Other'>Other</option>");
 
             }else if(selected_category == "Poetry"){
                 $("#sub-category").empty();
@@ -315,6 +320,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $("#sub-category").append("<option value='Ballads'>Ballads</option>");
                 $("#sub-category").append("<option value='Odes'>Odes</option>");
                 $("#sub-category").append("<option value='Anthologies'>Anthologies</option>");
+                $("#sub-category").append("<option value='Other'>Other</option>");
             }
             $("#sub-category").prop("disabled", false);
         });
