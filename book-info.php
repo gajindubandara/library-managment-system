@@ -229,7 +229,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="shelf-number" class="col-sm-3 col-form-label">Price</label>
+                    <label for="shelf-number" class="col-sm-3 col-form-label">Price (Rs.)</label>
                     <div class="col-sm-9">
                         <input type="number" class="form-control" id="price" name="price" value="<?php echo $price;?>" disabled>
                         <span id="priceErr"></span>
