@@ -83,7 +83,7 @@ function getMyRecordsTable($count, $result)
             if ($row["penalty"] != null) {
                 $penalty = $row["penalty"];
             }
-            echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $penalty . '">' . $penalty . '</td>';
+            echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $penalty . '">' . $penalty . '.00</td>';
             echo '<td style="vertical-align: middle;"> <input type="hidden" value="' . $status . '">' . $status . '</td>';
             echo '</tr>';
             echo '</tr>';

@@ -85,9 +85,9 @@ include("connection/config.php");
                         <span id="editionErr"></span>
                     </div>
                     <div class="form-group">
-                        <label for="book" class="control-label">Price</label>
+                        <label for="book" class="control-label">Price (Rs.)</label>
                         <input type="number" name="price" id="price" autocomplete="off" min="0" class="form-control"
-                               placeholder="Price" required/>
+                               placeholder="Price (Rs.)" required/>
                         <span id="priceErr"></span>
                     </div>
                     <div class="form-group">
