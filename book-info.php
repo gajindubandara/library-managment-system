@@ -272,7 +272,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                         <button type="button" class=" btn btn-primary btn-flex" id="edit-btn">Edit Book</button>
                         <input type="submit" class=" btn btn-success d-none btn-flex" id="save-btn" value="Save" name="save">
                         <input type="submit" class=" btn btn-danger btn-flex" id="delete-btn" value="Delete Book" name="delete">
-                        <button type="button" class=" btn btn-secondary btn-flex" onclick="window.history.back()">Back to Previous Page</button>
+                        <button type="button" id="cancel" class=" btn btn-danger d-none btn-flex" onclick="window.location.reload()">Cancel</button>
                     </div>
                 </div>
             </form>
@@ -321,6 +321,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
             $("#sub-category").append("<option value='Literary-fiction'>Literary Fiction</option>");
             $("#sub-category").append("<option value='Satire'>Satire</option>");
             $("#sub-category").append("<option value='Gothic'>Gothic</option>");
+            $("#sub-category").append("<option value='Other'>Other</option>");
         } else if (inputValue == "Non-fiction") {
             $("#sub-category").append("<option value='Autobiography-memoir'>Autobiography/Memoir</option>");
             $("#sub-category").append("<option value='Biography'>Biography</option>");
@@ -347,6 +348,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
             $("#sub-category").append("<option value='Cultural-social-issues'>Cultural/Social Issues</option>");
             $("#sub-category").append("<option value='Music-history'>Music/Music History</option>");
             $("#sub-category").append("<option value='Foreign-languages'>Foreign languages</option>");
+            $("#sub-category").append("<option value='Other'>Other</option>");
 
         } else if (inputValue == "Reference") {
             $("#sub-category").append("<option value='Dictionaries'>Dictionaries</option>");
@@ -355,6 +357,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
             $("#sub-category").append("<option value='Atlases'>Atlases</option>");
             $("#sub-category").append("<option value='Almanacs'>Almanacs</option>");
             $("#sub-category").append("<option value='Style-guides'>Style Guides</option>");
+            $("#sub-category").append("<option value='Other'>Other</option>");
 
         } else if (inputValue == "Magazines-and-newspapers") {
             $("#sub-category").append("<option value='Current-events-magazines'>Current Events Magazines</option>");
@@ -362,10 +365,12 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
             $("#sub-category").append("<option value='Literary-magazines'>Literary Magazines</option>");
             $("#sub-category").append("<option value='Sports-magazines'>Sports Magazines</option>");
             $("#sub-category").append("<option value='Local-and-national-newspapers'>Local and National Newspapers</option>");
+            $("#sub-category").append("<option value='Other'>Other</option>");
 
         } else if (inputValue == "Graphic-novels") {
             $("#sub-category").append("<option value='Comics'>Comics</option>");
             $("#sub-category").append("<option value='Manga'>Manga</option>");
+            $("#sub-category").append("<option value='Other'>Other</option>");
 
         } else if (inputValue == "Poetry") {
             $("#sub-category").append("<option value='Sonnets'>Sonnets</option>");
@@ -377,6 +382,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
             $("#sub-category").append("<option value='Ballads'>Ballads</option>");
             $("#sub-category").append("<option value='Odes'>Odes</option>");
             $("#sub-category").append("<option value='Anthologies'>Anthologies</option>");
+            $("#sub-category").append("<option value='Other'>Other</option>");
         }
 
         //set selected sub category
@@ -406,6 +412,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                 $("#sub-category").append("<option value='Literary-fiction'>Literary Fiction</option>");
                 $("#sub-category").append("<option value='Satire'>Satire</option>");
                 $("#sub-category").append("<option value='Gothic'>Gothic</option>");
+                $("#sub-category").append("<option value='Other'>Other</option>");
             } else if (selected_category == "Non-fiction") {
                 $("#sub-category").empty();
                 $("#sub-category").append("<option value=''>Select Sub-Category</option>");
@@ -434,6 +441,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                 $("#sub-category").append("<option value='Cultural-social-issues'>Cultural/Social Issues</option>");
                 $("#sub-category").append("<option value='Music-history'>Music/Music History</option>");
                 $("#sub-category").append("<option value='Foreign-languages'>Foreign languages</option>");
+                $("#sub-category").append("<option value='Other'>Other</option>");
 
             } else if (selected_category == "Reference") {
                 $("#sub-category").empty();
@@ -444,6 +452,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                 $("#sub-category").append("<option value='Atlases'>Atlases</option>");
                 $("#sub-category").append("<option value='Almanacs'>Almanacs</option>");
                 $("#sub-category").append("<option value='Style-guides'>Style Guides</option>");
+                $("#sub-category").append("<option value='Other'>Other</option>");
 
             } else if (selected_category == "Magazines-and-newspapers") {
                 $("#sub-category").empty();
@@ -453,12 +462,14 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                 $("#sub-category").append("<option value='Literary-magazines'>Literary Magazines</option>");
                 $("#sub-category").append("<option value='Sports-magazines'>Sports Magazines</option>");
                 $("#sub-category").append("<option value='Local-and-national-newspapers'>Local and National Newspapers</option>");
+                $("#sub-category").append("<option value='Other'>Other</option>");
 
             } else if (selected_category == "Graphic-novels") {
                 $("#sub-category").empty();
                 $("#sub-category").append("<option value=''>Select Sub-Category</option>");
                 $("#sub-category").append("<option value='Comics'>Comics</option>");
                 $("#sub-category").append("<option value='Manga'>Manga</option>");
+                $("#sub-category").append("<option value='Other'>Other</option>");
 
             } else if (selected_category == "Poetry") {
                 $("#sub-category").empty();
@@ -472,6 +483,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                 $("#sub-category").append("<option value='Ballads'>Ballads</option>");
                 $("#sub-category").append("<option value='Odes'>Odes</option>");
                 $("#sub-category").append("<option value='Anthologies'>Anthologies</option>");
+                $("#sub-category").append("<option value='Other'>Other</option>");
             }
         });
     });
@@ -482,7 +494,9 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
             $('#category').prop('disabled', false);
             $('#sub-category').prop('disabled', false);
             $('#edit-btn').addClass('d-none');
+            $('#delete-btn').addClass('d-none');
             $('#save-btn').removeClass('d-none');
+            $('#cancel').removeClass('d-none');
             $('#newCopies').prop('hidden',false);
         });
     });
