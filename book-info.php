@@ -152,7 +152,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
     <div class="row">
         <div class="col-md-4" id="imageHolder" style="margin: auto">
             <img src="<?php echo $imageUrl;?>" alt="Book Cover" class="img-fluid book-cover"
-                 onerror="this.onerror=null;this.src='https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png';">
+                 onerror="this.onerror=null;this.src='Images/bookPlaceholder.png';">
         </div>
         <div class="col-md-8">
             <h1 class="mb-4">Book Details</h1>

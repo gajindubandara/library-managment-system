@@ -76,7 +76,7 @@ include 'connection/config.php';
         <div class="row" style="padding-left: 40px">
             {{#data}}
             <div class="card">
-                <img src="{{imgUrl}}" alt="Book" />
+                <img src="{{imgUrl}}" alt="Book" onerror="this.onerror=null;this.src='Images/bookPlaceholder.png';"/>
                 <h3><b>{{name}}</b></h3>
                 <p><b>by {{author}}</b></p>
                 <p style="margin:0px">{{isbn}}</p>

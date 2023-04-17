@@ -150,7 +150,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
         <div class="col-md-4" id="imageHolder" style="margin: auto">
             <!--            <img src="https://via.placeholder.com/200x300" alt="Book Cover" class="img-fluid book-cover">-->
             <img src="<?php echo $imgUrl;?>" alt="Book Cover" class="book-cover" style="border-radius: 50%;width: 300px;height: 300px;object-fit: cover;"
-                 onerror="this.onerror=null;this.src='https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png';" >
+                 onerror="this.onerror=null;this.src='Images/userPlaceholder.png';" >
         </div>
         <div class="col-md-8">
             <h1 class="mb-4">My Profile</h1>
