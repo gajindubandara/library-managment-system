@@ -163,7 +163,7 @@ $(document).ready(function() {
     function validateAuthor() {
         const author = authorInput.val();
         const authorErrorDiv = $('#authorErr');
-        if (!/^[A-Za-z .,]*$/.test(author)) {
+        if (!/^[A-Za-z ]*$/.test(author)) {
             authorErrorDiv.html('Author name should contain only letters.');
             authorErrorDiv.css("color", "red");
             return false;
