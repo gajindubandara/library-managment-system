@@ -210,7 +210,7 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                 <div class="row mb-3">
                     <label for="edition" class="col-sm-3 col-form-label">Edition</label>
                     <div class="col-sm-9">
-                        <input type="number" class="form-control" id="edition" name="edition" value="<?php echo $edition;?>" disabled>
+                        <input type="text" class="form-control" id="edition" name="edition" value="<?php echo $edition;?>" disabled>
                         <span id="editionErr"></span>
                     </div>
                 </div>

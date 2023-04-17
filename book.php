@@ -80,7 +80,7 @@ include("connection/config.php");
                     </div>
                     <div class="form-group">
                         <label for="book" class="control-label">Edition</label>
-                        <input type="number" name="edition" id="edition" min="0" autocomplete="off" class="form-control"
+                        <input type="text" name="edition" id="edition" min="0" autocomplete="off" class="form-control"
                                placeholder="Edition" required/>
                         <span id="editionErr"></span>
                     </div>

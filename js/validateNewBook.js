@@ -31,10 +31,10 @@ $(document).ready(function() {
         validateIsbn();
         checkValidity();
     });
-    editionInput.on('input', function () {
-        validateEdition();
-        checkValidity();
-    });
+    // editionInput.on('input', function () {
+    //     validateEdition();
+    //     checkValidity();
+    // });
     priceInput.on('input', function () {
         validatePrice();
         checkValidity();
@@ -89,23 +89,23 @@ $(document).ready(function() {
             }
     }
 
-    function validateEdition() {
-        const edition = editionInput.val();
-        const editionErrorDiv = $('#editionErr');
-
-        if (!/^[0-9]*$/.test(edition)) {
-            editionErrorDiv.html('Edition should contain only digits.');
-            editionErrorDiv.css("color", "red");
-            return false;
-        } else if (edition <= 0) {
-            editionErrorDiv.html('Edition should be greater than zero.');
-            editionErrorDiv.css("color", "red");
-            return false;
-        } else {
-            editionErrorDiv.html('');
-            return true;
-        }
-    }
+    // function validateEdition() {
+    //     const edition = editionInput.val();
+    //     const editionErrorDiv = $('#editionErr');
+    //
+    //     if (!/^[0-9]*$/.test(edition)) {
+    //         editionErrorDiv.html('Edition should contain only digits.');
+    //         editionErrorDiv.css("color", "red");
+    //         return false;
+    //     } else if (edition <= 0) {
+    //         editionErrorDiv.html('Edition should be greater than zero.');
+    //         editionErrorDiv.css("color", "red");
+    //         return false;
+    //     } else {
+    //         editionErrorDiv.html('');
+    //         return true;
+    //     }
+    // }
 
     function validatePrice() {
         const price = priceInput.val();
@@ -221,7 +221,7 @@ $(document).ready(function() {
     }
 
     function checkValidity() {
-        if (validateIsbn() && validateEdition() && validatePrice() && validateYear() && validatePublisher() && validateImage() && validateAuthor() && validateMainCategory() && validateSubCategory() && validateCopies()) {
+        if (validateIsbn() && validatePrice() && validateYear() && validatePublisher() && validateImage() && validateAuthor() && validateMainCategory() && validateSubCategory() && validateCopies()) {
             saveButton.prop('disabled', false);
         } else {
             saveButton.prop('disabled', true);
