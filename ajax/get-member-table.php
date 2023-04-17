@@ -45,7 +45,9 @@ function getMemberTable($count,$result){
 
             echo '<tbody>';
             echo '<tr class="rw">';
-            echo '<td style="vertical-align: middle;"><img style="border-radius:50%; width:50px; height: 50px% " src="' . $row[6] . '"></td>';
+            $image_link = $row[6];
+            echo '<td style="vertical-align: middle;"><img style="border-radius:50%; width:50px; height: 50px% " src="' . $image_link . '"
+                onerror="this.onerror=null;this.src=\'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png\';" ></td>';
             echo '<td style="vertical-align: middle;"> <input type="hidden" value="' . $row[0] . '">' . $row[0] . '</td>';
             echo '<td style="vertical-align: middle;"> <input type="hidden" value="' . $row[1] . '">' . $row[1] . '</td>';
             echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $row[2] . '">' . $row[2] . '</td>';

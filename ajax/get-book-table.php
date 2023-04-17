@@ -41,7 +41,8 @@ function getBookTable($count, $result)
             $valueArr = explode(',', $row[4]);
             echo '<tbody>';
             echo '<tr class="rw">';
-            echo '<td style="vertical-align: middle;"><img src="' . $row[0] . '" width="80" height="90"></td>';
+            $image_link = $row[0];
+            echo '<td style="vertical-align: middle;"><img src="' . $image_link . '" width="80" height="90"   onerror="this.onerror=null;this.src=\'https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png\';" ></td>';
             echo '<td style="vertical-align: middle;"> <input type="hidden" value="' . $row[11] . '">' . $row[11] . '</td>';
             echo '<td style="vertical-align: middle;"> <input type="hidden" value="' . $row[1] . '">' . $row[1] . '</td>';
             echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $row[2] . '">' . $row[2] . '</td>';
