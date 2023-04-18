@@ -78,10 +78,16 @@ include 'connection/config.php';
             <div class="card">
                 <img src="{{imgUrl}}" alt="Book" onerror="this.onerror=null;this.src='Images/bookPlaceholder.png';"/>
                 <h3><b>{{name}}</b></h3>
-                <p><b>by {{author}}</b></p>
-                <p style="margin:0px">{{isbn}}</p>
-                <p style="margin:0px">{{pub}}</p>
-                <p style="margin:0px">{{year}}</p>
+                <p>by {{author}}</p>
+                <div class="additional-info">
+                    <h3><b>{{name}}</b></h3>
+                    <p><b>Author:</b>{{author}}</p>
+                    <p><b>Sub-category:</b> {{subCat}}</p>
+                    <p><b>ISBN:</b> {{isbn}}</p>
+                    <p><b>Publisher:</b> {{pub}}</p>
+                    <p><b>Edition:</b> {{edition}}</p>
+                    <p><b>Year:</b> {{year}}</p>
+                </div>
             </div>
             {{/data}}
         </div>
