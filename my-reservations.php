@@ -67,12 +67,12 @@ include("connection/config.php");
                     <div class="form-group">
                         <label for="book" class="control-label">Requesting Date</label>
                         <input type="text" name="reqDate" id="reqDate" autocomplete="off" class="form-control"
-                               placeholder="requesting date" required/>
+                               placeholder="Requesting Date" required/>
                     </div>
                     <div class="form-group">
                         <label for="book" class="control-label">Book Name</label>
                         <input type="text" name="name" id="name" autocomplete="off" class="form-control"
-                               placeholder="book name"  required/>
+                               placeholder="Book Name"  required/>
                         <span id="check-isbn"></span>
                     </div>
                     <div class="row justify-content-md-center">
