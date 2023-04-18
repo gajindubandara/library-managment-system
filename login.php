@@ -136,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo "$(document).ready(function() {";
                     echo "Swal.fire({";
                     echo " icon: 'warning',";
-                    echo "text: 'Incorrect user name or password',";
+                    echo "text: 'Incorrect user id or password',";
                     echo "}).then((result) => {";
                     echo "});";
                     echo "});";
