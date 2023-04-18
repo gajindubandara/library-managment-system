@@ -78,9 +78,9 @@ if(isset($_POST['query'])) {
                 echo '</thead>';
                 echo '<tbody>';
                 echo '<tr class="rw">';
-                echo '<td style="vertical-align: middle;"><img src="'.$row[0].'" width="80" height="90"></td>';
+                echo '<td style="vertical-align: middle;"><img src="'.$row[0].'" width="80" height="90" onerror="this.onerror=null;this.src=\'Images/bookPlaceholder.png\';"></td>';
                 echo '<td style="vertical-align: middle;"> <input id="bookName" type="hidden" value="' . $row[1] . '">' . $row[1] . '</td>';
-                echo '<td style="vertical-align: middle;"> <div  style="color:green; font-weight: bold">Available</div></td>';
+                echo '<td style="vertical-align: middle;"> <div id="availability"  style="color:green; font-weight: bold">Available</div></td>';
                 echo'<td style="vertical-align: middle;"><input type="checkbox" id="select">
                         <label for="checkBox" id="msg">Select</label></td>';
                 echo '</tr>';
@@ -88,20 +88,34 @@ if(isset($_POST['query'])) {
                 echo ' </tbody>';
                 echo '</table>';
                 echo '</form></div> </div>';
+                $catArr = explode(',', $row[4]);
                 echo'<script>
-                      $(document).ready(function() {            
+                      $(document).ready(function() {      
+                            //disable for referance books
+                          if("'.$catArr[0].'"=="Reference"){
+                            $("#availability").html("Reference books cannot be reserved");
+                            $("#availability").css("color", "red");
+                            $("#save").prop("disabled", true);
+                            $("#select").prop("hidden", true);
+                            $("#msg").prop("hidden", true);
+                        }else{
+                            $("#save").prop("disabled", false);
+                            $("#select").prop("hidden", false);
+                            $("#msg").prop("hidden", false);
+                        }
+                          //set save button disable on page load
                          $("#save").prop("disabled", true);
+                          
+                          //change funtion for book name input filed
                          var inputValue = $("#bookName").val();
-                
                           $("#select").change(function() {
                             if ($(this).prop("checked")) {
                                 $("#name").val(inputValue).prop("disabled", true)
                                 $("#msg").html("Selected");
-                                $("#save").prop("disabled", false);  
+                                $("#save").prop("disabled", false); 
                             } else {
                                 $("#name").val("").prop("disabled", false);
                                 $("#msg").html("Select");
-
                             }
                             });
                       });
