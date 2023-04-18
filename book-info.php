@@ -210,47 +210,47 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                 <div class="row mb-3">
                     <label for="edition" class="col-sm-3 col-form-label">Edition</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="edition" name="edition" value="<?php echo $edition;?>" disabled>
+                        <input type="text" class="form-control" id="edition" name="edition" value="<?php echo $edition;?>" required disabled>
                         <span id="editionErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="publisher" class="col-sm-3 col-form-label">Publisher</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="publisher" name="publisher" value="<?php echo $publisher;?>" disabled>
+                        <input type="text" class="form-control" id="publisher" name="publisher" value="<?php echo $publisher;?>" required disabled>
                         <span id="publisherErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="rack-number" class="col-sm-3 col-form-label">Year</label>
                     <div class="col-sm-9">
-                        <input type="number" class="form-control" id="year" name="year" value="<?php echo $year;?>" disabled>
+                        <input type="number" class="form-control" id="year" name="year" value="<?php echo $year;?>" required disabled>
                         <span id="yearErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="shelf-number" class="col-sm-3 col-form-label">Price (Rs.)</label>
                     <div class="col-sm-9">
-                        <input type="number" class="form-control" id="price" name="price" value="<?php echo $price;?>" disabled>
+                        <input type="number" class="form-control" id="price" name="price" value="<?php echo $price;?>" required disabled>
                         <span id="priceErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="rack-number" class="col-sm-3 col-form-label">Rack Number</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="rack-number" name="rack" value="<?php echo $rack;?>" disabled>
+                        <input type="text" class="form-control" id="rack-number" name="rack" value="<?php echo $rack;?>" required disabled>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="shelf-number" class="col-sm-3 col-form-label">Shelf Number</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="shelf-number" name="shell" value="<?php echo $shell;?>" disabled>
+                        <input type="text" class="form-control" id="shelf-number" name="shell" value="<?php echo $shell;?>" required disabled>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="shelf-number" class="col-sm-3 col-form-label">Image URL</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="url" name="imgUrl" value="<?php echo $imageUrl;?>" disabled>
+                        <input type="text" class="form-control" id="url" name="imgUrl" value="<?php echo $imageUrl;?>" required disabled>
                         <span id="urlErr"></span>
                     </div>
                 </div>
