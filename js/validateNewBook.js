@@ -12,19 +12,7 @@ $(document).ready(function() {
     const copiesInput = $('#noc');
     const saveButton = $('#save');
 
-    //set error msg to category selection
-    const CatValue = $("#category").val();
-    if (CatValue==""){
-        validateMainCategory();
-        checkValidity();
-    }
 
-    //set error msg to sub-category selection
-    const SubCatValue = $("#sub-category").val();
-    if (SubCatValue==""){
-        validateSubCategory();
-        checkValidity();
-    }
 
     // Attach event listeners for input fields
     isbnInput.on('input', function () {

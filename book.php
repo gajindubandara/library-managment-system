@@ -116,7 +116,7 @@ include("connection/config.php");
                     </div>
                     <div class="form-group">
                         <label for="status" class="control-label">Main Category</label>
-                        <select class="form-control" id="category" name="category">
+                        <select class="form-control" id="category" name="category" required >
                             <option value="">Select Main Category</option>
                             <option value="Fiction">Fiction</option>
                             <option value="Non-fiction">Non-fiction</option>
@@ -129,7 +129,7 @@ include("connection/config.php");
                     </div>
                     <div class="form-group">
                         <label for="status" class="control-label">Sub-Category</label>
-                        <select class="form-control" id="sub-category" name="sub-category" disabled>
+                        <select class="form-control" id="sub-category" name="sub-category" required disabled>
                             <option value="">Select Sub-Category</option>
                         </select>
                         <span id="subCatErr"></span>
