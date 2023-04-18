@@ -88,31 +88,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($oPw == $password) {
                     if ($_POST["rNPw"] == $_POST["nPw"]) {
                         $npw = md5($_POST["nPw"]);
-                        $check=$memberService->changePassword($id,$npw);
-
-                        if($check==1){
-                            echo "<script>";
-                            echo "$(document).ready(function() {";
-                            echo "Swal.fire({";
-                            echo " icon: 'success',";
-                            echo "text: 'Password updated Successfully!',";
-                            echo "}).then((result) => {";
-                            echo "});";
-                            echo "});";
-                            echo "</script>";
-                        }
-                        else{
+                        if ($npw==$password){
                             echo "<script>";
                             echo "$(document).ready(function() {";
                             echo "Swal.fire({";
                             echo " icon: 'warning',";
-                            echo "text: 'Password update failed!',";
+                            echo "text: 'New password & old password cannot be same!',";
                             echo "}).then((result) => {";
                             echo "});";
                             echo "});";
                             echo "</script>";
-                        }
+                        }else{
+                            $check=$memberService->changePassword($id,$npw);
 
+                            if($check==1){
+                                echo "<script>";
+                                echo "$(document).ready(function() {";
+                                echo "Swal.fire({";
+                                echo " icon: 'success',";
+                                echo "text: 'Password updated Successfully!',";
+                                echo "}).then((result) => {";
+                                echo "});";
+                                echo "});";
+                                echo "</script>";
+                            }
+                            else{
+                                echo "<script>";
+                                echo "$(document).ready(function() {";
+                                echo "Swal.fire({";
+                                echo " icon: 'warning',";
+                                echo "text: 'Password update failed!',";
+                                echo "}).then((result) => {";
+                                echo "});";
+                                echo "});";
+                                echo "</script>";
+                            }
+                        }
                     } else {
                         echo "<script>";
                         echo "$(document).ready(function() {";
@@ -214,7 +225,8 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                         <input type="submit" class="btn btn-success d-none btn-flex" id="save-btn" value="Save" name="save">
                         <button type="button" class="btn btn-primary btn-flex" id="pw-btn">Change Password</button>
                         <input type="submit" class="btn btn-success d-none btn-flex" id="save-pw" value="Save Password" name="save-pw">
-                        <button type="button" id="cancel" class=" btn btn-danger d-none btn-flex" onclick="window.location.reload()">Cancel</button>                    </div>
+                        <button type="button" id="cancel" class=" btn btn-danger d-none btn-flex" onclick="window.location.replace('my-profile.php');">Cancel</button>
+                    </div>
                 </div>
             </form>
 
