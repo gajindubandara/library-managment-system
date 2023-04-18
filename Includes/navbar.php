@@ -2,12 +2,35 @@
 <div class="header_toggle"> <i id="header-toggle" class='fa fa-bars' ></i> </div>
     <div class="header_items">
         <?php
-        if(isset($_SESSION["M_ID"]) || isset($_SESSION["A_ID"])){
-            echo'<div class="header_img"> <img id="userImg" src="'.$_SESSION["nav_Img"].'" alt=""> </div>';
-            echo '<div class="header_item">'.$_SESSION["nav_Name"].'</div>';
+        if(isset($_SESSION["M_ID"])){
+            echo'
+            <button class="btn" style=" padding: 5px !important; background: #f7f6fb; border-radius:60px;" onclick="window.location.replace(\'my-profile.php\');">
+                    <div class="d-flex flex-row">
+                    <div class="header_item p-2" style="margin-left: 0pc !important; ">'.$_SESSION["nav_Name"].'</div>
+                    <div class="header_img "> <img id="userImg" src="'.$_SESSION["nav_Img"].'" alt=""> </div>
+                    </div>
+            </button>
+            ';
+            echo '
+             <a href="user-guide/member-user-guide.pdf" download>
+                <button class="btn" style="margin-left: 10px; padding: 5px !important;  background: #d5d5d5;"><img src="Images/user-guide.png" style="width: 30px;height: 30px;"></button>
+            </a>
+                  ';
+        }
+        else if(isset($_SESSION["A_ID"])){
+            echo'
+                <div class="header_item">'.$_SESSION["nav_Name"].'</div>
+                <div class="header_img "> <img id="userImg" src="'.$_SESSION["nav_Img"].'" alt=""> </div>           
+           ';
+            echo '
+            <a href="user-guide/admin-user-guide.pdf" download>
+                <button class="btn" style="margin-left: 10px; padding: 5px !important;  background: #d5d5d5;"><img src="Images/user-guide.png" style="width: 30px;height: 30px;"></button>
+            </a>
+            ';
         }else{
-            echo'<div class="header_img"> <img id="userImg" src="https://images.macrumors.com/t/n4CqVR2eujJL-GkUPhv1oao_PmI=/1600x/article-new/2019/04/guest-user-250x250.jpg"" alt=""> </div>';
+
             echo '<div class="header_item">Guest</div>';
+            echo'<div class="header_img"> <img id="userImg" src="https://images.macrumors.com/t/n4CqVR2eujJL-GkUPhv1oao_PmI=/1600x/article-new/2019/04/guest-user-250x250.jpg"" alt=""> </div>';
         }
         error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
         ?>
