@@ -239,15 +239,41 @@ a {
     color: #0062cc;
     background-color: #fff;
 }
-.login-form-2 .ForgetPwd{
-    color: #fff;
+
+.loginBtn {
     font-weight: 600;
+    color: #dcdcdc;
+    background-color: #003cb0;
+    border: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    text-align: center;
     text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    position: relative;
+    overflow: hidden;
 }
-.login-form-1 .ForgetPwd{
-    color: #0062cc;
-    font-weight: 600;
-    text-decoration: none;
+
+.loginBtn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(128, 127, 127, 0.3);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.loginBtn:hover {
+    transform: translateY(-2px) translateZ(10px);
+}
+
+.loginBtn:hover::before {
+    width: 100%;
 }
 
 /*custom alert box*/
