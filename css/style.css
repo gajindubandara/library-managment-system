@@ -180,7 +180,9 @@ a {
     }
 
     .header_img img {
-        width: 45px
+        width: 45px;
+        object-fit: cover;
+
     }
 
     .l-navbar {
