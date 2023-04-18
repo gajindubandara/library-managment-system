@@ -34,7 +34,7 @@ function getOldPenaltyTable($count, $result)
                      <th scope="col">Book ISBN</th>
                      <th scope="col">Borrowed Date</th>
                      <th scope="col">Due Date</th>
-                     <th scope="col">Penalty</th>
+                     <th scope="col">Penalty (Rs.)</th>
               </tr>';
         echo '</thead>';
         foreach ($result as $row) {
@@ -46,7 +46,7 @@ function getOldPenaltyTable($count, $result)
             echo '<td style="vertical-align: middle;"> <input type="hidden" value="' . $row[1] . '">' . $row[1] . '</td>';
             echo '<td style="vertical-align: middle;"> <input type="hidden" value="' . $row[3] . '">' . $row[3] . '</td>';
             echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $row[4] . '">' . $row[4] . '</td>';
-            echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $row[6] . '">' . $row[6] . '</td>';
+            echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $row[6] . '">' . $row[6] . '.00</td>';
             echo '</tr>';
             echo '</tr>';
             echo ' </tbody>';
