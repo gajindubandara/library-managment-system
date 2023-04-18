@@ -47,7 +47,11 @@ function getBookTable($count, $result)
             echo '<td style="vertical-align: middle;"> <input type="hidden" value="' . $row[1] . '">' . $row[1] . '</td>';
             echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $row[2] . '">' . $row[2] . '</td>';
             echo '<td style="vertical-align: middle;"> <input type="hidden" value="' . $row[3] . '">' . $row[3] . '</td>';
-            echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $row[4] . '">' . $valueArr[0] . ' ('.$valueArr[1].')</td>';
+            $category = $valueArr[0];
+            $category = str_replace("-", " ", $category);
+            $subCategory = $valueArr[1];
+            $subCategory = str_replace("-", " ", $subCategory);
+            echo '<td style="vertical-align: middle;"> <input type="hidden"  value="' . $row[4] . '">' . $category. ' ('.$subCategory.')</td>';
             echo '<td style="vertical-align: middle;"><button class="btn btn-primary"  style="margin: auto" name="viewBook" type="submit"  value="' . $row[11] . '"><i class="fa fa-info-circle "></i>  </button></td>';
             echo '</tr>';
             echo '</tr>';

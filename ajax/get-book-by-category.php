@@ -14,8 +14,11 @@ if(!empty($_POST["option"])) {
         $arrAll = array();
 
         foreach ($result as $row){
+            $catArr = explode(',', $row[9]);
+            $subCategory = $catArr[1];
+            $subCategory = str_replace("-", " ", $subCategory);
             $objArray = array('bookId'=>$row[0],'isbn'=>$row[1],'name'=>$row[2],'edition'=>$row[3],'price'=>$row[4],'year'=>$row[5],
-                'pub'=>$row[6],'imgUrl'=>$row[7],'author'=>$row[8]);
+                'pub'=>$row[6],'imgUrl'=>$row[7],'author'=>$row[8],'subCat'=>$subCategory);
             array_push($arrAll,$objArray);
         }
         echo json_encode($arrAll);
@@ -28,8 +31,12 @@ if(!empty($_POST["option"])) {
         $arr = array();
         if ($count > 0) {
             foreach ($result as $row) {
+
+                $catArr = explode(',', $row[9]);
+                $subCategory = $catArr[1];
+                $subCategory = str_replace("-", " ", $subCategory);
                 $objArray = array('bookId' => $row[0], 'isbn' => $row[1], 'name' => $row[2], 'edition' => $row[3], 'price' => $row[4], 'year' => $row[5],
-                    'pub' => $row[6], 'imgUrl' => $row[7], 'author' => $row[8]);
+                    'pub' => $row[6], 'imgUrl' => $row[7], 'author' => $row[8],'subCat'=>$subCategory);
                 array_push($arrAll, $objArray);
             }
             echo json_encode($arrAll);
