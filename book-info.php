@@ -139,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         } catch (PDOException $th) {
 //            echo $th->getMessage();
-            echo "<script> alert('There are exciting records or reservation for this book! Can't delete the book');</script>";
+            echo "<script> alert('There are exciting records or reservation for this book! Cannot delete the book');</script>";
         }
     }
 }
