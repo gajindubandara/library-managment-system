@@ -166,21 +166,21 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
                 <div class="row mb-3">
                     <label for="book-isbn" class="col-sm-3 col-form-label">Book ISBN</label>
                     <div class="col-sm-9">
-                        <input type="number" class="form-control" id="book-isbn" name="isbn" value="<?php echo $isbn;?>" disabled>
+                        <input type="number" class="form-control" id="book-isbn" name="isbn" value="<?php echo $isbn;?>" required disabled>
                         <span id="isbnErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="book-name" class="col-sm-3 col-form-label">Book Name</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="book-name" name="title" value="<?php echo $title;?>" disabled>
+                        <input type="text" class="form-control" id="book-name" name="title" value="<?php echo $title;?>" required disabled>
                         <span id="nameErr"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="author" class="col-sm-3 col-form-label">Author</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="author" name="author" value="<?php echo $author;?>" disabled>
+                        <input type="text" class="form-control" id="author" name="author" value="<?php echo $author;?>" required disabled>
                         <span id="authorErr"></span>
                     </div>
                 </div>
