@@ -31,7 +31,7 @@ include("connection/config.php");
         <div class="p-2">
             <div class="row">
                 <div class="feature-title">Search for a record</div>
-                <input type="text" class="form-control" id="search" placeholder="Type the member ID">
+                <input type="number" min="0" class="form-control" id="search" placeholder="Type the member ID">
             </div>
 
             <button type="button" id="viewTable" class="btn btn-primary" style="margin-top: 10px"><span

@@ -141,9 +141,10 @@ class BookService implements IBook
     public function getFilteredBooks()
     {
         $conn = getCon();
-        $query = "SELECT `imgUrl`, `name`, `isbn`, `author`, `cat`,`edition`, `price`, `year`, `pub`,  `rack`, `shell`,`bookid` 
-                    FROM `book` WHERE name LIKE '{$_POST['query']}%' LIMIT 100";
-        return $conn->query($query);
+        $query = $conn->quote($_POST['query'].'%');
+        $stmt = "SELECT `imgUrl`, `name`, `isbn`, `author`, `cat`,`edition`, `price`, `year`, `pub`,  `rack`, `shell`,`bookid` 
+                    FROM `book` WHERE name LIKE $query LIMIT 100";
+        return $conn->query($stmt);
     }
 
     public function bookCount($isbn)
@@ -204,8 +205,9 @@ class BookService implements IBook
     public function getSearchedBooks()
     {
         $conn = getCon();
-        $query ="SELECT `bookId`, `isbn`, `name`, `edition`, `price`, `year`, `pub`, `imgUrl`, `author`, `cat`, `rack`, `shell` 
-            FROM `book` WHERE name LIKE '{$_POST['query']}%' GROUP BY `isbn`";
-        return $conn->query($query);
+        $query = $conn->quote($_POST['query'].'%');
+        $stmt ="SELECT `bookId`, `isbn`, `name`, `edition`, `price`, `year`, `pub`, `imgUrl`, `author`, `cat`, `rack`, `shell` 
+            FROM `book` WHERE name LIKE $query GROUP BY `isbn`";
+        return $conn->query($stmt);
     }
 }

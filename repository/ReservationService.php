@@ -78,17 +78,18 @@ class ReservationService implements IReservation
     public function getFilteredReservationSet()
     {
         $conn = getCon();
-        $query = "SELECT book.name, reservation.id, reservation.date, reservation.reqDate, reservation.state, reservation.userId, reservation.bookId
+        $query = $conn->quote($_POST['query'].'%');
+        $stmt = "SELECT book.name, reservation.id, reservation.date, reservation.reqDate, reservation.state, reservation.userId, reservation.bookId
                     FROM reservation 
                     JOIN book ON book.bookId = reservation.bookId 
-                    WHERE reservation.state IN ('pending', 'accepted') AND book.name LIKE '{$_POST['query']}%'
+                    WHERE reservation.state IN ('pending', 'accepted') AND book.name LIKE $query 
                     ORDER BY 
                       CASE reservation.state 
                         WHEN 'pending' THEN 1 
                         WHEN 'accepted' THEN 2 
                       END, 
                       reservation.date DESC;";
-        return $conn->query($query);
+        return $conn->query($stmt);
     }
 
     public function getOldReservationSet()
@@ -146,10 +147,11 @@ class ReservationService implements IReservation
     {
         $id =$_SESSION["M_ID"];
         $conn = getCon();
-        $query ="SELECT book.name, reservation.id, reservation.date, reservation.reqDate, reservation.state
+        $query = $conn->quote($_POST['query'].'%');
+        $stmt ="SELECT book.name, reservation.id, reservation.date, reservation.reqDate, reservation.state
                     FROM reservation 
                     JOIN book ON book.bookId = reservation.bookId 
-                    WHERE reservation.userId = $id AND book.name LIKE '{$_POST['query']}%'
+                    WHERE reservation.userId = $id AND book.name LIKE $query
                     ORDER BY 
                       CASE reservation.state 
                         WHEN 'pending' THEN 1 
@@ -158,7 +160,7 @@ class ReservationService implements IReservation
                         WHEN 'completed' THEN 4 
                       END;
                     ";
-        return $conn->query($query);
+        return $conn->query($stmt);
     }
 
     public function deleteReservation($reservationId)

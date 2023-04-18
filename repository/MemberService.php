@@ -111,8 +111,9 @@ class MemberService implements IMember{
     public function getFilteredMembers()
     {
         $conn = getCon();
-        $query = "SELECT `id`, `name`, `email`, `no`, `state`, `password`, `imgUrl` FROM `member` WHERE name LIKE '{$_POST['query']}%' LIMIT 100";
-        return $conn->query($query);
+        $query = $conn->quote($_POST['query'].'%');
+        $stmt= "SELECT `id`, `name`, `email`, `no`, `state`, `password`, `imgUrl` FROM `member` WHERE name LIKE $query LIMIT 100";
+        return $conn->query($stmt);
     }
 
 
