@@ -31,9 +31,9 @@ function getOldPenaltyTable($count, $result)
         echo '<tr>
                      <th scope="col">Record ID</th>
                      <th scope="col">Member ID</th>
-                     <th scope="col">Book ISBN</th>
+                     <th scope="col">Book ID</th>
                      <th scope="col">Borrowed Date</th>
-                     <th scope="col">Due Date</th>
+                     <th scope="col">Past Due Date</th>
                      <th scope="col">Penalty (Rs.)</th>
               </tr>';
         echo '</thead>';
