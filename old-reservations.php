@@ -36,9 +36,6 @@ include("connection/config.php");
             <button type="button" id="viewTable" class="btn btn-primary" style="margin-top: 10px"><span
                     class="glyphicon glyphicon-plus">View All </span></button>
         </div>
-        <div class="ml-auto p-2">
-            <button type="button" class="btn btn-secondary" onclick="back()" style="margin: 20px">Back to Previous Page</button>
-        </div>
     </div>
 
     <div class="row justify-content-md-center">
@@ -55,15 +52,6 @@ include("connection/config.php");
 <script src="js/navbar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
-    //get back to previous page
-    function back(){
-        // Remove any form data from the current page's history state
-        history.replaceState(null, null, window.location.href);
-
-        // Navigate back to the previous page
-        window.history.back();
-    }
-
     $(document).ready(function () {
 
         //get the full table
