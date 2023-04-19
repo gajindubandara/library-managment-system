@@ -70,13 +70,13 @@ include("connection/config.php");
                     <div class="form-group">
                         <label for="book" class="control-label">Book ID</label>
                         <input type="text" name="bookId" id="bookId" autocomplete="off" class="form-control"
-                               placeholder="book id"  required/>
+                               placeholder="Book ID"  required/>
                         <span id="get-book"></span>
                     </div>
                     <div class="form-group">
                         <label for="book" class="control-label">Member ID</label>
                         <input type="text" name="memberId" id="memberId" autocomplete="off" class="form-control"
-                               placeholder="book name"  required/>
+                               placeholder="Member ID"  required/>
                         <span id="get-member"></span>
                     </div>
                     <div class="form-group">
