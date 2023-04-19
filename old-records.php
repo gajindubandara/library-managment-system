@@ -39,7 +39,7 @@ include("connection/config.php");
         </div>
 
         <div class="ml-auto p-2">
-            <button type="button" class="btn btn-secondary" onclick="window.history.back()" style="margin: 20px">Back to Previous Page</button>
+            <button type="button" class="btn btn-secondary" onclick="back()" style="margin: 20px">Back to Previous Page</button>
         </div>
     </div>
 
@@ -56,6 +56,15 @@ include("connection/config.php");
 <script src="js/navbar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
+    //get back to previous page
+    function back(){
+        // Remove any form data from the current page's history state
+        history.replaceState(null, null, window.location.href);
+
+        // Navigate back to the previous page
+        window.history.back();
+    }
+
     $(document).ready(function () {
 
         //get the full table
