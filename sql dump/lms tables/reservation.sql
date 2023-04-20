@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2023 at 12:18 PM
+-- Generation Time: Apr 20, 2023 at 06:47 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -41,8 +41,15 @@ CREATE TABLE `reservation` (
 --
 
 INSERT INTO `reservation` (`id`, `bookId`, `userId`, `date`, `reqDate`, `state`) VALUES
-(2, 1, 9563, '2023-04-06', '2023-04-15', 'pending'),
-(3, 19, 9563, '2023-04-06', '2023-04-12', 'pending');
+(2, 1, 9563, '2023-04-06', '2023-04-15', 'rejected'),
+(3, 19, 9563, '2023-04-06', '2023-04-12', 'rejected'),
+(5, 31, 9563, '2023-04-09', '2023-04-11', 'completed'),
+(7, 35, 9563, '2023-04-12', '2023-04-20', 'completed'),
+(8, 41, 9563, '2023-04-12', '2023-04-27', 'accepted'),
+(10, 42, 9563, '2023-04-12', '2023-04-15', 'completed'),
+(11, 32, 9540, '2023-04-13', '2023-04-14', 'completed'),
+(12, 45, 9563, '2023-04-16', '2023-04-19', 'rejected'),
+(14, 46, 9563, '2023-04-20', '2023-04-29', 'pending');
 
 --
 -- Indexes for dumped tables
@@ -64,7 +71,7 @@ ALTER TABLE `reservation`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
