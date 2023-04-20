@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2023 at 07:24 PM
+-- Generation Time: Apr 20, 2023 at 06:47 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -49,7 +49,7 @@ CREATE TABLE `book` (
 INSERT INTO `book` (`bookId`, `isbn`, `name`, `edition`, `price`, `year`, `pub`, `imgUrl`, `author`, `cat`, `rack`, `shell`) VALUES
 (1, '9780141439747', 'Oliver Twist', '3', '1500', '2023', 'CreateSpace Independent', 'https://images.moviesanywhere.com/b51b0b3c7e83fdba3c40fadd9c58e338/2806543f-08cc-4f14-bcc6-9fc6a3f764e7.jpg', 'Charles Dickens', 'Fiction,Literary-fiction', '21', '10'),
 (2, '9780142410387', 'The Lightning Thief', '1', '2000', '2005', 'Puffin Books', 'https://jumpbooks.lk/ceruvef/uploads/2022/12/Percy-Jackson-and-the-Lightning-Thief-1.jpeg', 'Rick Riordan', 'Fiction,Fantasy', '5', '2'),
-(3, '9780545162074', 'Harry potter', '1', '3500', '1997', 'Scholastic Press', 'https://i2-prod.walesonline.co.uk/incoming/article6890072.ece/ALTERNATES/s615b/hp1.jpg', 'J.K.Rowling', 'Fiction,Adventure', '4', '1'),
+(3, '9780545162074', 'Harry potter and the philosopher\'s stone', '1', '3500', '1997', 'Scholastic Press', 'https://i2-prod.walesonline.co.uk/incoming/article6890072.ece/ALTERNATES/s615b/hp1.jpg', 'J.K.Rowling', 'Fiction,Adventure', '4', '1'),
 (19, '9780810993136', 'Diary of a Wimpy Kid', '1', '2500', '2007', 'Amulet Books', 'https://m.media-amazon.com/images/I/51PU+rBEnjL.jpg', 'Jeff Kinney', 'Fiction,Comedy', '1', '3'),
 (20, '9780810993136', 'Diary of a Wimpy Kid', '1', '2500', '2007', 'Amulet Books', 'https://m.media-amazon.com/images/I/51PU+rBEnjL.jpg', 'Jeff Kinney', 'Fiction,Comedy', '1', '3'),
 (31, '9780141439747', 'Oliver Twist', '3', '1500', '2023', 'CreateSpace Independent', 'https://images.moviesanywhere.com/b51b0b3c7e83fdba3c40fadd9c58e338/2806543f-08cc-4f14-bcc6-9fc6a3f764e7.jpg', 'Charles Dickens', 'Fiction,Literary-fiction', '21', '10'),
@@ -80,7 +80,8 @@ INSERT INTO `book` (`bookId`, `isbn`, `name`, `edition`, `price`, `year`, `pub`,
 (62, '9770018546380', 'Rolling Stone', '134', '300', '2023', 'Penske Media Corporation', 'https://cdn.shopify.com/s/files/1/2096/4023/products/FrvfbzmWwAANRyu.jpg?v=1679586231', 'Multiple Authors', 'Magazines-and-newspapers,Other', '25', '3'),
 (63, '9780143130727', 'Ikigai', 'Reprint Edition', '2300', '2018', 'Penguin Books', 'https://static-01.daraz.lk/p/e326b92ced0cac7932bf9cc3b6f31259.jpg', 'Hector Garcia, Francesc Miralles', 'Non-fiction,Self-help-personal-development', '4', '1'),
 (64, '9780735211292', 'Atomic Habits', '1', '2700', '2018', 'Avery', 'https://m.media-amazon.com/images/I/91bYsX41DVL.jpg', 'James Clear', 'Non-fiction,Self-help-personal-development', '23', '2'),
-(65, '9781421530588', 'Pokémon Adventures: Red & Blue, Vol. 1', '1', '1000', '2011', 'VIZ Media LLC', 'https://m.media-amazon.com/images/I/51Zo7d4TjvL.jpg', 'Hidenori Kusaka, Mato', 'Graphic-novels,Manga', '3', '7');
+(65, '9781421530588', 'Pokémon Adventures: Red & Blue, Vol. 1', '1', '1000', '2011', 'VIZ Media LLC', 'https://m.media-amazon.com/images/I/51Zo7d4TjvL.jpg', 'Hidenori Kusaka, Mato', 'Graphic-novels,Manga', '3', '7'),
+(67, '9780140439083', 'The Adventures of Sherlock Holmes', 'Reissue Edition', '800', '2003', 'Penguin Classics', 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781607102113/the-adventures-of-sherlock-holmes-and-other-stories-9781607102113_hr.jpg', 'Arthur Conan Doyle', 'Fiction,Mystery', '5', '7');
 
 --
 -- Indexes for dumped tables
@@ -100,7 +101,7 @@ ALTER TABLE `book`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `bookId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `bookId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
